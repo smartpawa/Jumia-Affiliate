@@ -9,4 +9,10 @@ class ProductsController extends Controller
     public function products(){
         return view('affiliate.products');
     }
+    public function cheapest(){
+
+    }
+    public function popular(){
+
+    }
 }

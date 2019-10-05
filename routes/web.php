@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('affiliate.index');
 });
 
 
@@ -21,5 +21,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/products', 'ProductsController@products');
-Route::get('/blog', 'BlogsController@index');
+Route::get('/cheapest', 'ProductsController@cheapest');
+Route::get('/popular', 'ProductsController@popular');
+Route::resource('blog', 'BlogsController');
 
