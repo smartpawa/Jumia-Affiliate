@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="{{ asset ('vendors/nice-select/nice-select.css') }}">
   <link rel="stylesheet" href="{{ asset ('vendors/owl-carousel/owl.theme.default.min.css') }}">
   <link rel="stylesheet" href="{{ asset ('vendors/owl-carousel/owl.carousel.min.css') }}">
-
+  <script src="{{ asset ('vendors/jquery/jquery-3.2.1.min.js') }}"></script>
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>

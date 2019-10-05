@@ -46,11 +46,12 @@ class ProductsController extends Controller
     }
 
 
+public function addVisit(Request $request){
+
+
+}
 
 
 
-    public function cheapest()
-    { }
-    public function popular()
-    { }
+
 }

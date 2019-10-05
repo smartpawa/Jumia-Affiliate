@@ -43,6 +43,7 @@
                 </div>
               </div>
 @endforeach
+
             </div>
             <div>
                     <ul class="pagination justify-content-center" style="margin:20px 0">
