@@ -12,25 +12,44 @@
 
           <!-- Start Best Seller -->
           <section class="lattest-product-area pb-40 category-list">
+                <div>
+                        <ul class="pagination justify-content-center" style="margin:20px 0">
+                                <li class="page-item">{{ $products->links() }}</li>
+                              </ul>
+
+
+
+                </div>
             <div class="row">
 
-              <div class="col-md-6 col-lg-4">
+@foreach($products as $product)
+              <div class="col-md-6 col-lg-3">
                 <div class="card text-center card-product">
-                  <div class="card-product__img">
-                    <img class="card-img" src="img/product/product1.png" alt="">
+                  <div class="card-product__img"><a href="{{ $product->affiliate_url }}">
+                    <img class="card-img" src="{{ $product->product_image_url }}" alt="">
+
+                  </a>
+
                     <ul class="card-product__imgOverlay">
-                      <li><button><i class="ti-search"></i></button></li>
-                      <li><button><i class="ti-shopping-cart"></i></button></li>
-                      <li><button><i class="ti-heart"></i></button></li>
+                      <a href="{{ $product->affiliate_url }}"><button class="btn btn-primary">Visit Seller</button></a>
                     </ul>
                   </div>
-                  <div class="card-body">
-                    <p>Accessories</p>
-                    <h4 class="card-product__title"><a href="#">Quartz Belt Watch</a></h4>
-                    <p class="card-product__price">$150.00</p>
+                  <div class="card-body" style=" font-size: 13px">
+                        <p>Seller: {{ $product->seller }}</p>
+                    <p  class=""><a  style="color:black;font-size: 15px" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
+                    <p style="color:red" ><strike>Kshs {{ number_format($product->former_price) }}</strike> (-{{ ceil(((($product->former_price)-($product->current_price))/($product->former_price))*100)}}%) </p>
+                    <p style="color:green" >Kshs {{ number_format($product->current_price) }}</p>
                   </div>
                 </div>
               </div>
+@endforeach
+            </div>
+            <div>
+                    <ul class="pagination justify-content-center" style="margin:20px 0">
+                            <li class="page-item">{{ $products->links() }}</li>
+                          </ul>
+
+
 
             </div>
           </section>

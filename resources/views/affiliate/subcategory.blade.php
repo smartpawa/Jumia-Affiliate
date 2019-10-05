@@ -7,23 +7,12 @@
 	<!-- ================ category section start ================= -->
   <section class="section-margin--small mb-5">
     <div class="container">
-
       <div class="row">
 @include('affiliate.sidemenu')
     <div class="col-xl-9 col-lg-8 col-md-7">
-            <div class=" text-center"><h3><u>{{ $name }} </u>({{ $items }} products)</h3></div>
-            <br>
-            <br>
+
           <!-- Start Best Seller -->
           <section class="lattest-product-area pb-40 category-list">
-                <div>
-                        <ul class="pagination justify-content-center" style="margin:20px 0">
-                                <li class="page-item">{{ $products->links() }}</li>
-                              </ul>
-
-
-
-                </div>
             <div class="row">
 @foreach($products as $product)
               <div class="col-md-6 col-lg-3">
@@ -37,22 +26,18 @@
                       <a href="{{ $product->affiliate_url }}"><button class="btn btn-primary">Visit Seller</button></a>
                     </ul>
                   </div>
-                  <div class="card-body" style=" font-size: 13px">
-                        <p>Seller: {{ $product->seller }}</p>
-                        <p  class=""><a  style="color:black;font-size: 15px" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
-                        <p style="color:red" ><strike>Kshs {{ number_format($product->former_price) }}</strike> (-{{ ceil(((($product->former_price)-($product->current_price))/($product->former_price))*100)}}%) </p>
-                        <p style="color:green" >Kshs {{ number_format($product->current_price) }}</p>
-                      </div>
+                  <div class="card-body">
+                    <p>Seller: Jumia</p>
+                    <h4 class="card-product__title"><a href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></h4>
+                    <p style="color:red" class="card-product__price"><strike>Kshs {{ number_format($product->current_price) }}</strike></p>
+                    <p style="color:green" class="card-product__price">Kshs {{ number_format($product->current_price) }}</p>
+                  </div>
                 </div>
               </div>
 @endforeach
             </div>
-            <div>
-                    <ul class="pagination justify-content-center" style="margin:20px 0">
-                            <li class="page-item">{{ $products->links() }}</li>
-                          </ul>
-
-
+            <div class=" pagination" style=" text-align:center">
+                {{ $products->links() }}
 
             </div>
           </section>

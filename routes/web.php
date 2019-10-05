@@ -20,7 +20,8 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('/products', 'ProductsController@products');
+Route::resource('products', 'ProductsController');
+Route::get('/all', 'ProductsController@products');
 Route::get('/cheapest', 'ProductsController@cheapest');
 Route::get('/popular', 'ProductsController@popular');
 Route::resource('blog', 'BlogsController');

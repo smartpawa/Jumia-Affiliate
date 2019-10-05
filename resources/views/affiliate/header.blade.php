@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="{{ asset ('vendors/owl-carousel/owl.theme.default.min.css') }}">
   <link rel="stylesheet" href="{{ asset ('vendors/owl-carousel/owl.carousel.min.css') }}">
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
   <!--================ Start Header Menu Area =================-->
@@ -31,16 +31,15 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
               <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-              <li class="nav-item active"><a class="nav-link" href="/products">All products</a></li>
+              <li class="nav-item active"><a class="nav-link" href="/all">All products</a></li>
               <li class="nav-item active"><a class="nav-link" href="/">Popular Products</a></li>
               <li class="nav-item active"><a class="nav-link" href="/">Cheapest Deals</a></li>
               <li class="nav-item active"><a class="nav-link" href="/blog">Blog</a></li>
             </ul>
 
             <ul class="nav-shop">
-              <li class="nav-item"><button><i class="ti-search"></i></button></li>
-              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
-              <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
+              <li class="nav-item"><input style="border-radius: 25px;" type="text"> <i class="ti-search"></i></li>
+
             </ul>
           </div>
         </div>
