@@ -26,12 +26,21 @@ class ProductsController extends Controller
     public function show($slug)
     {
 
-
+        $index = 0;
         $categoryDetails = DB::table('categories')->where('category_slug', $slug)->first();
         $category = $categoryDetails->id;
+
+
+        $subCategories=DB::table('subcategories')->where('parent_category_id',$category)->get();
+        $subcategoryCount = array();
+        foreach ($subCategories as $subCategory) {
+            $subCategoryID = $subCategory->id;
+            $subCategoryCount[] = DB::table('products')->where('subcategory_id', $subCategoryID)->count();
+        }
+
         $name = $categoryDetails->category_name;
         $items = DB::table('products')->where('category_id', $category)->count();
-        $index = 0;
+
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->where('category_id', $category)->paginate(20);
 
@@ -42,16 +51,14 @@ class ProductsController extends Controller
         }
 
 
-        return view('affiliate.category', compact('products', 'categories', 'categoryCount', 'index', 'name', 'items'));
+
+        $categoryCount = array();
+
+
+        return view('affiliate.category', compact('subcategoryCount','subCategories','products', 'categories', 'categoryCount', 'index', 'name', 'items'));
     }
 
 
-public function addVisit(Request $request){
-
-
-}
-
-
-
-
+    public function addVisit(Request $request)
+    { }
 }

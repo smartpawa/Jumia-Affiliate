@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->float('current_price');
             $table->integer('category_id');
             $table->integer('subcategory_id');
-            $table->integer('seller');
+            $table->String('seller');
             $table->integer('visits');
             $table->timestamps();
         });

@@ -9,7 +9,31 @@
     <div class="container">
 
       <div class="row">
-@include('affiliate.sidemenu')
+
+        <div class="col-xl-3 col-lg-4 col-md-5">
+            <div class="sidebar-categories">
+              <div class="head">Browse Categories</div>
+              <ul class="main-categories">
+                <li class="common-filter">
+                  <form action="#">
+                    <ul>
+                        @foreach ($subCategories as $subcategory )
+
+                       <a href="/products/{{ $subcategory->subcategory_slug }}"><li class="filter-list">{{ $subcategory->subcategory_name }}<span> ()</span></label></li>
+                       </a>
+        @php
+        $index=$index+1;
+        @endphp
+                        @endforeach
+                    </ul>
+                  </form>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+
     <div class="col-xl-9 col-lg-8 col-md-7">
             <div class=" text-center"><h3><u>{{ $name }} </u>({{ $items }} products)</h3></div>
             <br>
