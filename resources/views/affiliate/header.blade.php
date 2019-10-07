@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="_token" content="{{csrf_token()}}" />
   <title>Best Online Deals</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="{{ asset ('vendors/bootstrap/bootstrap.min.css') }}">
@@ -17,10 +18,10 @@
 </head>
 <body>
   <!--================ Start Header Menu Area =================-->
-	<header class="header_area">
+	<header class="header_area ">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
+        <div class="container" style=" color">
           <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,8 +33,8 @@
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
               <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
               <li class="nav-item active"><a class="nav-link" href="/all">All products</a></li>
-              <li class="nav-item active"><a class="nav-link" href="/">Popular Products</a></li>
-              <li class="nav-item active"><a class="nav-link" href="/">Cheapest Deals</a></li>
+              <li class="nav-item active"><a class="nav-link" href="/popular">Popular Products</a></li>
+              <li class="nav-item active"><a class="nav-link" href="/cheapest">Cheapest Deals</a></li>
               <li class="nav-item active"><a class="nav-link" href="/blog">Blog</a></li>
             </ul>
 
@@ -47,3 +48,10 @@
     </div>
   </header>
 	<!--================ End Header Menu Area =================-->
+    <style>
+            .col-md-6:hover {
+                outline: 1px solid black;
+
+            }
+
+    </style>

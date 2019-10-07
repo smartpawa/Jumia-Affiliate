@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->integer('category_id');
             $table->integer('subcategory_id');
             $table->String('seller');
-            $table->integer('visits');
+            $table->integer('visits')->default(1);
             $table->timestamps();
         });
     }

@@ -7,6 +7,17 @@ use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
+    public function index()
+    {
+        $index = 0;
+        $categories = DB::table('categories')->get();
+        foreach ($categories as $category) {
+            $categoryID = $category->id;
+            $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
+        }
+        $trendingProducts = DB::table('products')->orderBy('visits', 'DESC')->paginate(12);
+        return view('affiliate.index', compact('trendingProducts', 'categories', 'categoryCount', 'index'));
+    }
     public function products()
     {
         $index = 0;
@@ -31,18 +42,40 @@ class ProductsController extends Controller
         $category = $categoryDetails->id;
 
 
-        $subCategories=DB::table('subcategories')->where('parent_category_id',$category)->get();
-        $subcategoryCount = array();
-        foreach ($subCategories as $subCategory) {
-            $subCategoryID = $subCategory->id;
-            $subCategoryCount[] = DB::table('products')->where('subcategory_id', $subCategoryID)->count();
-        }
+        $subcategories = DB::table('subcategories')->where('parent_category_id', $category)->get();
+
 
         $name = $categoryDetails->category_name;
         $items = DB::table('products')->where('category_id', $category)->count();
 
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->where('category_id', $category)->paginate(20);
+
+
+
+
+        $categoryCount = array();
+
+        //dd($subcategories);
+        return view('affiliate.category', compact('subcategories', 'products', 'categories',  'index', 'name', 'items'));
+    }
+
+
+    public function addVisitCount(Request $request)
+    {
+
+
+
+        $id = $request->id;
+        DB::table('products')->where('id', $id)->increment('visits', 1);
+    }
+
+    public function popular()
+    {
+
+        $index = 0;
+        $categories = DB::table('categories')->get();
+        $products = DB::table('products')->orderBy('visits', 'DESC')->paginate(20);
 
         $categoryCount = array();
         foreach ($categories as $category) {
@@ -51,14 +84,23 @@ class ProductsController extends Controller
         }
 
 
-
-        $categoryCount = array();
-
-
-        return view('affiliate.category', compact('subcategoryCount','subCategories','products', 'categories', 'categoryCount', 'index', 'name', 'items'));
+        return view('affiliate.popular', compact('products', 'categories', 'categoryCount', 'index'));
     }
 
+    public function cheapest()
+    {
 
-    public function addVisit(Request $request)
-    { }
+        $index = 0;
+        $categories = DB::table('categories')->get();
+        $products = DB::table('products')->orderBy('current_price', 'ASC')->paginate(20);
+
+        $categoryCount = array();
+        foreach ($categories as $category) {
+            $categoryID = $category->id;
+            $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
+        }
+
+
+        return view('affiliate.popular', compact('products', 'categories', 'categoryCount', 'index'));
+    }
 }

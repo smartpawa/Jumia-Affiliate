@@ -21,12 +21,7 @@
 
                 </div>
             <div class="row">
-<style>
-        .col-md-6:hover {
-            outline: 1px solid black;
-           
-        }
-</style>
+
 @foreach($products as $product)
               <div class="col-md-6 col-lg-3" id="{{ $product->id }}">
                 <div class="card text-center card-product">
@@ -90,7 +85,6 @@
       </div>
     </div>
   </section>
-
 
 
 @include('affiliate.footer')

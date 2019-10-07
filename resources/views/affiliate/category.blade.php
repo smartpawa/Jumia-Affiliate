@@ -10,35 +10,65 @@
 
       <div class="row">
 
-        <div class="col-xl-3 col-lg-4 col-md-5">
-            <div class="sidebar-categories">
-              <div class="head">Browse Categories</div>
-              <ul class="main-categories">
-                <li class="common-filter">
-                  <form action="#">
-                    <ul>
-                        @foreach ($subCategories as $subcategory )
 
-                       <a href="/products/{{ $subcategory->subcategory_slug }}"><li class="filter-list">{{ $subcategory->subcategory_name }}<span> ()</span></label></li>
-                       </a>
-        @php
-        $index=$index+1;
-        @endphp
-                        @endforeach
-                    </ul>
-                  </form>
-                </li>
-              </ul>
-            </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-5">
+                <div class="sidebar-categories">
+                        <div class="head">Sub Categories</div>
+                        <ul class="main-categories">
+                          <li class="common-filter">
+
+                              <ul>
+                                  @foreach ($subcategories as $subcategory )
+
+                                 <a style=""href="/subcategories/{{ $subcategory->subcategory_slug }}"><li style="  border-style: solid;
+                                    border-width: 1px;border-radius:25px " id="{{ $subcategory->subcategory_name }}" class="filter-list"> &ensp; {{ $subcategory->subcategory_name }} &ensp; </li>
+                                    <br>
+                                 </a>
+<script>
+
+        var colors = ['Aquamarine ','Cornsilk ','LightCyan ','white'];
+        $('.filter-list').css('background-color', function() {
+            var i = Math.floor(Math.random()*colors.length);
+            var color = colors[i];
+            //colors.splice(i, 1);
+            return color;
+        });
+
+</script>
+                                  @endforeach
+                             </ul>
+
+                          </li>
+                        </ul>
+                      </div>
+                <div class="sidebar-categories">
+                        <div class="head">Other Categories</div>
+                        <ul class="main-categories">
+                          <li class="common-filter">
+
+                              <ul>
+                                  @foreach ($categories as $category )
+
+                                 <a href="/products/{{ $category->category_slug }}"><li class="filter-list">{{ $category->category_name }}<span></span></label></li>
+                                 </a>
+
+
+                                  @endforeach
+                             </ul>
+
+                          </li>
+                        </ul>
+                      </div>
+
 
           </div>
 
 
+
     <div class="col-xl-9 col-lg-8 col-md-7">
-            <div class=" text-center"><h3><u>{{ $name }} </u>({{ $items }} products)</h3></div>
-            <br>
-            <br>
-          <!-- Start Best Seller -->
+            <div  class=" text-center panel panel-heading"><h6><u>{{ $name }} </u>({{ $items }} )</h6></div>
+
           <section class="lattest-product-area pb-40 category-list">
                 <div>
                         <ul class="pagination justify-content-center" style="margin:20px 0">
@@ -50,7 +80,7 @@
                 </div>
             <div class="row">
 @foreach($products as $product)
-              <div class="col-md-6 col-lg-3">
+              <div class="col-md-6 col-lg-3" id="{{ $product->id }}">
                 <div class="card text-center card-product">
                   <div class="card-product__img"><a href="{{ $product->affiliate_url }}">
                     <img class="card-img" src="{{ $product->product_image_url }}" alt="">
@@ -69,6 +99,30 @@
                       </div>
                 </div>
               </div>
+
+
+              <script>
+                    jQuery(document).ready(function(){
+                       jQuery('#{{ $product->id }}').click(function(e){
+
+                          $.ajaxSetup({
+                             headers: {
+                                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                             }
+                         });
+                          jQuery.ajax({
+                             url: "{{ url('/addvisitcount') }}",
+                             method: 'post',
+                             data: {
+                                id: {{ $product->id }}
+
+                             },
+                             success: function(result){
+
+                             }});
+                          });
+                       });
+                 </script>
 @endforeach
             </div>
             <div>
@@ -87,145 +141,5 @@
   </section>
 	<!-- ================ category section end ================= -->
 
-	<!-- ================ top product area start ================= -->
-	<section class="related-product-area">
-		<div class="container">
-			<div class="section-intro pb-60px">
-        <p>Popular Item in the market</p>
-        <h2>Top <span class="section-intro__style">Product</span></h2>
-      </div>
-			<div class="row mt-30">
-        <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
-          <div class="single-search-product-wrapper">
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="img/product/product-sm-1.png" alt=""></a>
-              <div class="desc">
-                  <a href="#" class="title">Gray Coffee Cup</a>
-                  <div class="price">$170.00</div>
-              </div>
-            </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="img/product/product-sm-2.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
-            </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="img/product/product-sm-3.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
-          <div class="single-search-product-wrapper">
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="img/product/product-sm-4.png" alt=""></a>
-              <div class="desc">
-                  <a href="#" class="title">Gray Coffee Cup</a>
-                  <div class="price">$170.00</div>
-              </div>
-            </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="img/product/product-sm-5.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
-            </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="img/product/product-sm-6.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
-          <div class="single-search-product-wrapper">
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="img/product/product-sm-7.png" alt=""></a>
-              <div class="desc">
-                  <a href="#" class="title">Gray Coffee Cup</a>
-                  <div class="price">$170.00</div>
-              </div>
-            </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="img/product/product-sm-8.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
-            </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="img/product/product-sm-9.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
-          <div class="single-search-product-wrapper">
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="img/product/product-sm-1.png" alt=""></a>
-              <div class="desc">
-                  <a href="#" class="title">Gray Coffee Cup</a>
-                  <div class="price">$170.00</div>
-              </div>
-            </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="img/product/product-sm-2.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
-            </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="img/product/product-sm-3.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-		</div>
-	</section>
-	<!-- ================ top product area end ================= -->
-
-	<!-- ================ Subscribe section start ================= -->
-  <section class="subscribe-position">
-    <div class="container">
-      <div class="subscribe text-center">
-        <h3 class="subscribe__title">Get Update From Anywhere</h3>
-        <p>Bearing Void gathering light light his eavening unto dont afraid</p>
-        <div id="mc_embed_signup">
-          <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe-form form-inline mt-5 pt-1">
-            <div class="form-group ml-sm-auto">
-              <input class="form-control mb-1" type="email" name="EMAIL" placeholder="Enter your email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '" >
-              <div class="info"></div>
-            </div>
-            <button class="button button-subscribe mr-auto mb-1" type="submit">Subscribe Now</button>
-            <div style="position: absolute; left: -5000px;">
-              <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-            </div>
-
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </section>
-	<!-- ================ Subscribe section end ================= -->
 
 @include('affiliate.footer')

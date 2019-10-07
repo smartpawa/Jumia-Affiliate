@@ -7,7 +7,7 @@
             <ul>
                 @foreach ($categories as $category )
 
-               <a href="/products/{{ $category->category_slug }}"><li class="filter-list">{{ $category->category_name }}<span> ({{ $categoryCount[ ($index)] }})</span></label></li>
+               <a href="/products/{{ $category->category_slug }}"><li class="filter-list">{{ $category->category_name }}<span></span></label></li>
                </a>
 @php
 $index=$index+1;

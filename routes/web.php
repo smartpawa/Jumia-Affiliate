@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('affiliate.index');
-});
+Route::get('/','ProductsController@index');
 
 
 Route::group(['prefix' => 'admin'], function () {
@@ -25,4 +23,6 @@ Route::get('/all', 'ProductsController@products');
 Route::get('/cheapest', 'ProductsController@cheapest');
 Route::get('/popular', 'ProductsController@popular');
 Route::resource('blog', 'BlogsController');
-
+Route::post('/addvisitcount','ProductsController@addVisitCount');
+Route::get('popular','ProductsController@popular');
+Route::resource('subcategories', 'SubcategoryController');
