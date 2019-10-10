@@ -1,22 +1,30 @@
-<div class="col-xl-3 col-lg-4 col-md-5">
+
+
+<style>
+        .category-link:hover {
+            background-color: #85C1E9 ;
+
+        }
+
+</style>
+
+
+
     <div class="sidebar-categories">
       <div class="head">Browse Categories</div>
-      <ul class="main-categories">
-        <li class="common-filter">
-          <form action="#">
-            <ul>
-                @foreach ($categories as $category )
+      <ul class="list-group">
 
-               <a href="/products/{{ $category->category_slug }}"><li class="filter-list">{{ $category->category_name }}<span></span></label></li>
-               </a>
-@php
-$index=$index+1;
-@endphp
-                @endforeach
-            </ul>
-          </form>
-        </li>
-      </ul>
+            @foreach ($categories as $category )
+
+          <a style="color:black"   href="/products/{{ $category->category_slug }}"><li class="category-link list-group-item">{{ $category->category_name }} ({{  $categoryCount[$index] }})</li></a>
+          @php
+              $index=$index+1;
+          @endphp
+          @endforeach
+
+
+
+          </ul>
     </div>
 
-  </div>
+

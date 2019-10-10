@@ -14,23 +14,24 @@
 
         <div class="col-xl-3 col-lg-4 col-md-5">
 
-                <div class="sidebar-categories">
-                        <div class="head">Categories</div>
-                        <ul class="main-categories">
-                          <li class="common-filter">
+                      <div class="sidebar-categories">
+                            <div class="head">Other Categories</div>
+                            <ul class="list-group">
 
-                              <ul>
-                                  @foreach ($categories as $category )
 
-                                 <a href="/products/{{ $category->category_slug }}"><li class="filter-list">{{ $category->category_name }}<span></span></label></li>
-                                 </a>
+            @foreach ($categories as $category )
 
-                                  @endforeach
-                             </ul>
+            <a   href="/products/{{ $category->category_slug }}"><li class="category-link list-group-item">{{ $category->category_name }}</li></a>
+               @endforeach
 
-                          </li>
-                        </ul>
-                      </div>
+
+
+
+                                </ul>
+                          </div>
+
+
+
 
 
           </div>
@@ -38,10 +39,8 @@
 
 
     <div class="col-xl-9 col-lg-8 col-md-7">
-            <div class=" text-center"><h3><u>{{ $name }} </u>({{ $items }} products)</h3></div>
-            <br>
-            <br>
-          <!-- Start Best Seller -->
+            <div   class=" text-center panel panel-heading "><h6><u>{{ $name }} </u>({{ $items }} )</h6></div>
+
           <section class="lattest-product-area pb-40 category-list">
                 <div>
                         <ul class="pagination justify-content-center" style="margin:20px 0">
@@ -72,6 +71,7 @@
                       </div>
                 </div>
               </div>
+
 
               <script>
                     jQuery(document).ready(function(){
@@ -111,5 +111,7 @@
       </div>
     </div>
   </section>
+	<!-- ================ category section end ================= -->
+
 
 @include('affiliate.footer')

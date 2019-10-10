@@ -15,51 +15,45 @@
         <div class="col-xl-3 col-lg-4 col-md-5">
                 <div class="sidebar-categories">
                         <div class="head">Sub Categories</div>
-                        <ul class="main-categories">
-                          <li class="common-filter">
+                        <ul class="list-group">
 
-                              <ul>
-                                  @foreach ($subcategories as $subcategory )
+                                @foreach ($subcategories as $subcategory )
 
-                                 <a style=""href="/subcategories/{{ $subcategory->subcategory_slug }}"><li style="  border-style: solid;
-                                    border-width: 1px;border-radius:25px " id="{{ $subcategory->subcategory_name }}" class="filter-list"> &ensp; {{ $subcategory->subcategory_name }} &ensp; </li>
-                                    <br>
-                                 </a>
-<script>
+                            <a   href="/subcategories/{{ $subcategory->subcategory_slug }}"><li class="category-link list-group-item">{{ $subcategory->subcategory_name }}</li></a>
+                               @endforeach
 
-        var colors = ['Aquamarine ','Cornsilk ','LightCyan ','white'];
-        $('.filter-list').css('background-color', function() {
-            var i = Math.floor(Math.random()*colors.length);
-            var color = colors[i];
-            //colors.splice(i, 1);
-            return color;
-        });
 
-</script>
-                                  @endforeach
-                             </ul>
 
-                          </li>
-                        </ul>
+                            </ul>
                       </div>
-                <div class="sidebar-categories">
-                        <div class="head">Other Categories</div>
-                        <ul class="main-categories">
-                          <li class="common-filter">
 
-                              <ul>
-                                  @foreach ($categories as $category )
+                      <style>
+                            .category-link:hover {
+                                background-color: #85C1E9 ;
 
-                                 <a href="/products/{{ $category->category_slug }}"><li class="filter-list">{{ $category->category_name }}<span></span></label></li>
-                                 </a>
+                            }
+
+                    </style>
 
 
-                                  @endforeach
-                             </ul>
 
-                          </li>
-                        </ul>
-                      </div>
+                        <div class="sidebar-categories">
+                          <div class="head">Other Categories</div>
+                          <ul class="list-group">
+
+                                @foreach ($categories as $category )
+
+                              <a style="color:black"   href="/products/{{ $category->category_slug }}"><li class="category-link list-group-item">{{ $category->category_name }} ({{  $categoryCount[$index] }})</li></a>
+                              @php
+                                  $index=$index+1;
+                              @endphp
+                              @endforeach
+
+
+
+                              </ul>
+                        </div>
+
 
 
           </div>
@@ -67,7 +61,7 @@
 
 
     <div class="col-xl-9 col-lg-8 col-md-7">
-            <div  class=" text-center panel panel-heading"><h6><u>{{ $name }} </u>({{ $items }} )</h6></div>
+            <div   class=" text-center panel panel-heading "><h6><u>{{ $name }} </u>({{ $items }} )</h6></div>
 
           <section class="lattest-product-area pb-40 category-list">
                 <div>

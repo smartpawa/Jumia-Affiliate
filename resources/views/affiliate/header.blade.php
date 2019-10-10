@@ -15,10 +15,23 @@
   <link rel="stylesheet" href="{{ asset ('vendors/owl-carousel/owl.carousel.min.css') }}">
   <script src="{{ asset ('vendors/jquery/jquery-3.2.1.min.js') }}"></script>
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
+
+    <style>
+            .nav-link:hover {
+
+              background-color: 	#E0FFFF;
+
+            }
+            a:active {
+                background-color: yellow;
+              }
+
+    </style>
   <!--================ Start Header Menu Area =================-->
-	<header class="header_area ">
+	<header class="header_area " style=" background-color:#B0C4DE;">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container" style=" color">
@@ -31,11 +44,11 @@
           </button>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-              <li class="nav-item active"><a class="nav-link" href="/all">All products</a></li>
-              <li class="nav-item active"><a class="nav-link" href="/popular">Popular Products</a></li>
-              <li class="nav-item active"><a class="nav-link" href="/cheapest">Cheapest Deals</a></li>
-              <li class="nav-item active"><a class="nav-link" href="/blog">Blog</a></li>
+              <li  class="nav-item "><a  style="color:black" class="nav-link" href="/">Home</a></li>
+              <li class="nav-item "><a  style="color:black" class="nav-link" href="/all">All products</a></li>
+              <li class="nav-item "><a style="color:black" class="nav-link" href="/popular">Popular Products</a></li>
+              <li class="nav-item "><a style="color:black" class="nav-link" href="/cheapest">Cheapest Deals</a></li>
+              <li class="nav-item"><a style="color:black" class="nav-link" href="/blog">Blog</a></li>
             </ul>
 
             <ul class="nav-shop">
@@ -48,10 +61,4 @@
     </div>
   </header>
 	<!--================ End Header Menu Area =================-->
-    <style>
-            .col-md-6:hover {
-                outline: 1px solid black;
 
-            }
-
-    </style>

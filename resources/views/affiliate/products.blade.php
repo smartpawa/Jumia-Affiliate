@@ -1,3 +1,10 @@
+<style>
+    .col-md-6:hover {
+        outline: 1px solid black;
+
+    }
+
+</style>
 @include('affiliate.header')
 	<!--================ End Header Menu Area =================-->
 
@@ -7,7 +14,10 @@
   <section class="section-margin--small mb-5">
     <div class="container">
       <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-5">
+
 @include('affiliate.sidemenu')
+            </div>
     <div class="col-xl-9 col-lg-8 col-md-7">
 
           <!-- Start Best Seller -->
@@ -24,7 +34,7 @@
 <style>
         .col-md-6:hover {
             outline: 1px solid black;
-           
+
         }
 </style>
 @foreach($products as $product)

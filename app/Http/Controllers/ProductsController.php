@@ -16,7 +16,7 @@ class ProductsController extends Controller
             $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
         }
         $trendingProducts = DB::table('products')->orderBy('visits', 'DESC')->paginate(12);
-        return view('affiliate.index', compact('trendingProducts', 'categories', 'categoryCount', 'index'));
+        return view('affiliate.index', compact('categoryCount','trendingProducts', 'categories', 'index'));
     }
     public function products()
     {
@@ -53,11 +53,17 @@ class ProductsController extends Controller
 
 
 
-
+//COUNT ITEMS IN CATEGORIES
         $categoryCount = array();
+        foreach ($categories as $category) {
+            $categoryID = $category->id;
+            $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
+        }
+
+
 
         //dd($subcategories);
-        return view('affiliate.category', compact('subcategories', 'products', 'categories',  'index', 'name', 'items'));
+        return view('affiliate.category', compact('categoryCount','subcategories', 'products', 'categories',  'index', 'name', 'items'));
     }
 
 
