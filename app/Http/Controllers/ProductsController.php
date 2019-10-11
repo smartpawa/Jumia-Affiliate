@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -108,5 +109,18 @@ class ProductsController extends Controller
 
 
         return view('affiliate.popular', compact('products', 'categories', 'categoryCount', 'index'));
+    }
+
+    public function search(Request $request)
+    {
+        //return $request->input('search');
+        
+       
+        $keyword = $request->input('search');
+        $products = Product::where('product_name', 'like', '%' .$keyword. '%')->paginate(10);
+        return view('affiliate.searchproducts', ['products'=>$products]);
+        //return $products;
+        //exit();
+
     }
 }

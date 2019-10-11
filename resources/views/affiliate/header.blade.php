@@ -52,7 +52,21 @@
             </ul>
 
             <ul class="nav-shop">
-              <li class="nav-item"><input style="border-radius: 25px;" type="text"> <i class="ti-search"></i></li>
+              <li class="nav-item">
+                  <div class="card-header">
+                      <form method="POST" action='{{ url("/search") }}'>
+                          {{ csrf_field() }}
+                          <div class="input-group">
+                              <input type="text" name="search" class="form-control" placeholder="Search for ...">
+                              <span class="input-group-btn">
+                                  <button type="submit" class="btn btn-default">
+                                      Go!
+                                  </button>
+                              </span>
+                          </div>
+                      
+                      </form>
+                  </div></li>
 
             </ul>
           </div>
