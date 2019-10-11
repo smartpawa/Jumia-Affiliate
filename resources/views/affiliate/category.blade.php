@@ -60,19 +60,24 @@
 
 
 
-    <div class="col-xl-9 col-lg-8 col-md-7">
-            <div   class=" text-center panel panel-heading "><h6><u>{{ $name }} </u>({{ $items }} )</h6></div>
+          <div class="col-xl-9 col-lg-8 col-md-7 card">
+                <div class="card-header">
+                        {{ $name }} </u>({{ $items }} )
+                      </div>
+            <div class="card-body">
 
-          <section class="lattest-product-area pb-40 category-list">
-                <div>
-                        <ul class="pagination justify-content-center" style="margin:20px 0">
-                                <li class="page-item">{{ $products->links() }}</li>
-                              </ul>
+              <!-- Start Best Seller -->
+              <section class="lattest-product-area pb-40 category-list">
+               @include('affiliate.filter')
+                    <div>
+                            <ul class="pagination justify-content-center" style="margin:20px 0">
+                                    <li class="page-item">{{ $products->links() }}</li>
+                                  </ul>
 
 
 
-                </div>
-            <div class="row">
+                    </div>
+            <div class="row" id="productsection">
 @foreach($products as $product)
               <div class="col-md-6 col-lg-3" id="{{ $product->id }}">
                 <div class="card text-center card-product">
@@ -131,6 +136,7 @@
           <!-- End Best Seller -->
         </div>
       </div>
+    </div>
     </div>
   </section>
 	<!-- ================ category section end ================= -->

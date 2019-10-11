@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
+public function filterProducts(Request $request){
+    $products = DB::table('products')->orderBy('current_price', 'ASC')->paginate(20);
+    return view('affiliate.filteredproducts',compact('products'));
+
+}
+
+
     public function index()
     {
         $index = 0;
