@@ -131,12 +131,8 @@ class ProductsController extends Controller
         $products = Product::where('product_name', 'like', '%' .$keyword. '%')
                             ->paginate(10);
 
-                            $products->appends (array ('keyword' => $keyword));
-            $categoryCount = array();
-            foreach ($categories as $category) {
-                    $categoryID = $category->id;
-                    $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
-            }
+                            $products->appends (array ('search' => $keyword));
+            $categoryCount = categoryCount();
         return view('affiliate.searchproducts', compact('products', 'categories', 'categoryCount', 'index'));
         //return $products;
         //exit();
