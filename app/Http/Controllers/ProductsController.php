@@ -125,6 +125,7 @@ class ProductsController extends Controller
         $keyword = $request->input('search');
         $index = 0;
         //return $request->input('search');
+<<<<<<< HEAD
         $categories = DB::table('categories')->get();
         $categoryCount = categoryCount();
 
@@ -132,6 +133,21 @@ class ProductsController extends Controller
         
         $products->appends(['search' => $keyword]);
         return view('affiliate.searchproducts', compact('products', 'categoryCount', 'categories', 'index'));
+=======
+        $index = 0;
+        $categories = DB::table('categories')->get();
+        $keyword = $request->input('search');
+        $products = Product::where('product_name', 'like', '%' .$keyword. '%')
+                            ->paginate(10);
+
+                            $products->appends (array ('keyword' => $keyword));
+            $categoryCount = array();
+            foreach ($categories as $category) {
+                    $categoryID = $category->id;
+                    $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
+            }
+        return view('affiliate.searchproducts', compact('products', 'categories', 'categoryCount', 'index'));
+>>>>>>> 739fae4df5fc2e77b10d621e49896df9b172ccf5
         //return $products;
         //exit();
 
