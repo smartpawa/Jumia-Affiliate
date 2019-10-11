@@ -1,11 +1,14 @@
 <div class="input-group">
 
-<div class="input-group-btn search-panel">
-        <select name="cars">
-                <option value="audi">Sort by: </option>
-                <option value="volvo">Most Popular</option>
-                <option value="saab">Lowest Price</option>
-                <option value="fiat">Highest Price</option>
+<div class="input-group-btn search-panel" class=" alert alert-success">
+
+
+        <select name="cars" id="sort">
+        <option> Sort by </option>
+                <option value="1">Filter by </option>
+                <option value="2">Most Popular</option>
+                <option value="3">Lowest Price</option>
+                <option value="4">Highest Price</option>
 
               </select>
 </div>
@@ -14,21 +17,23 @@
 <script>
         jQuery(document).ready(function(){
 
-            jQuery(".selectChange").change(function (){
+            jQuery("#sort").change(function (){
               $.ajaxSetup({
                  headers: {
                      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                  }
              });
               jQuery.ajax({
-                 url: "{{ url('/addvisitcount') }}",
+                 url: "{{ url('/filter') }}",
                  method: 'post',
                  data: {
-
+                    id: {{ $cat_id }},
+                    parameter: $("#sort").val()
 
                  },
                  success: function(result){
 
+$("#productsection").load('/filter');
                  }});
               });
            });
