@@ -54,7 +54,7 @@
             <ul class="nav-shop">
               <li class="nav-item">
                   <div class="card-header">
-                      <form method="POST" action='{{ url("/search") }}'>
+                      <form method="GET" action='{{ url("/search") }}'>
                           {{ csrf_field() }}
                           <div class="input-group">
                               <input type="text" name="search" class="form-control" placeholder="Search for ...">
