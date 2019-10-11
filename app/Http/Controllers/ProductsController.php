@@ -8,23 +8,20 @@ use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
-public function filterProducts(Request $request){
-    $products = DB::table('products')->orderBy('current_price', 'ASC')->paginate(20);
-    return view('affiliate.filteredproducts',compact('products'));
-
-}
+    public function filterProducts(Request $request)
+    {
+        $products = DB::table('products')->orderBy('current_price', 'ASC')->paginate(20);
+        return view('affiliate.filteredproducts', compact('products'));
+    }
 
 
     public function index()
     {
         $index = 0;
         $categories = DB::table('categories')->get();
-        foreach ($categories as $category) {
-            $categoryID = $category->id;
-            $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
-        }
+        $categoryCount = categoryCount();
         $trendingProducts = DB::table('products')->orderBy('visits', 'DESC')->paginate(12);
-        return view('affiliate.index', compact('categoryCount','trendingProducts', 'categories', 'index'));
+        return view('affiliate.index', compact('categoryCount', 'trendingProducts', 'categories', 'index'));
     }
     public function products()
     {
@@ -32,11 +29,7 @@ public function filterProducts(Request $request){
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->paginate(20);
 
-        $categoryCount = array();
-        foreach ($categories as $category) {
-            $categoryID = $category->id;
-            $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
-        }
+        $categoryCount = categoryCount();
 
 
         return view('affiliate.products', compact('products', 'categories', 'categoryCount', 'index'));
@@ -61,17 +54,12 @@ public function filterProducts(Request $request){
 
 
 
-//COUNT ITEMS IN CATEGORIES
-        $categoryCount = array();
-        foreach ($categories as $category) {
-            $categoryID = $category->id;
-            $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
-        }
-
+        //COUNT ITEMS IN CATEGORIES
+        $categoryCount = categoryCount();
 
 
         //dd($subcategories);
-        return view('affiliate.category', compact('categoryCount','subcategories', 'products', 'categories',  'index', 'name', 'items'));
+        return view('affiliate.category', compact('categoryCount', 'subcategories', 'products', 'categories',  'index', 'name', 'items'));
     }
 
 
@@ -91,11 +79,7 @@ public function filterProducts(Request $request){
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->orderBy('visits', 'DESC')->paginate(20);
 
-        $categoryCount = array();
-        foreach ($categories as $category) {
-            $categoryID = $category->id;
-            $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
-        }
+        $categoryCount = categoryCount();
 
 
         return view('affiliate.popular', compact('products', 'categories', 'categoryCount', 'index'));
@@ -108,11 +92,7 @@ public function filterProducts(Request $request){
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->orderBy('current_price', 'ASC')->paginate(20);
 
-        $categoryCount = array();
-        foreach ($categories as $category) {
-            $categoryID = $category->id;
-            $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
-        }
+        $categoryCount = categoryCount();
 
 
         return view('affiliate.popular', compact('products', 'categories', 'categoryCount', 'index'));
@@ -120,12 +100,14 @@ public function filterProducts(Request $request){
 
     public function search(Request $request)
     {
-        //return $request->input('search');
-        
-       
         $keyword = $request->input('search');
-        $products = Product::where('product_name', 'like', '%' .$keyword. '%')->paginate(10);
-        return view('affiliate.searchproducts', ['products'=>$products]);
+        $index = 0;
+        //return $request->input('search');
+        $categories = DB::table('categories')->get();
+        $categoryCount = categoryCount();
+
+        $products = Product::where('product_name', 'like', '%' . $keyword . '%')->paginate(20);
+        return view('affiliate.searchproducts', compact('products', 'categoryCount', 'categories', 'index'));
         //return $products;
         //exit();
 
