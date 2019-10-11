@@ -17,17 +17,12 @@
           <div class="col-xl-3 col-lg-4 col-md-5">
 
 @include('affiliate.sidemenu')
-<<<<<<< HEAD
           </div>
   <div class="col-xl-9 col-lg-8 col-md-7 card">
           <div class="card-header">
                   Featured
                 </div>
       <div class="card-body">
-=======
-            </div>
-    <div class="col-xl-9 col-lg-8 col-md-7">
->>>>>>> 739fae4df5fc2e77b10d621e49896df9b172ccf5
 
         <!-- Start Best Seller -->
         <section class="lattest-product-area pb-40 category-list">
