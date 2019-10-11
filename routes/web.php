@@ -26,4 +26,8 @@ Route::resource('blog', 'BlogsController');
 Route::post('/addvisitcount','ProductsController@addVisitCount');
 Route::get('popular','ProductsController@popular');
 Route::resource('subcategories', 'SubcategoryController');
+<<<<<<< HEAD
 Route::get('/filter', 'ProductsController@filterProducts');
+=======
+Route::post('/search', 'ProductsController@search');
+>>>>>>> ab9a6ec56c8ea8be8cef5e5935740bc4159cd796
