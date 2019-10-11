@@ -106,7 +106,9 @@ class ProductsController extends Controller
         $categories = DB::table('categories')->get();
         $categoryCount = categoryCount();
 
-        $products = Product::where('product_name', 'like', '%' . $keyword . '%')->paginate(20);
+        $products = Product::where('product_name', 'like', '%' . $keyword . '%')->paginate(10);
+        //$products->appends (array ('keyword' => $keyword));
+        $products->appends(['search' => $keyword]);
         return view('affiliate.searchproducts', compact('products', 'categoryCount', 'categories', 'index'));
         //return $products;
         //exit();
