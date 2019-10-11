@@ -10,7 +10,29 @@ class ProductsController extends Controller
 {
     public function filterProducts(Request $request)
     {
-        $products = DB::table('products')->orderBy('current_price', 'ASC')->paginate(20);
+
+        $category = $request->id;
+        $parameter = $request->parameter;
+        dd($category);
+
+
+
+
+        if ($parameter == '2') {
+            $products = DB::table('products')->where('category_id', $category)->orderBy('visits', 'DESC')->paginate(20);
+        }
+        if ($parameter == 3) {
+            $products = DB::table('products')->where('category_id', $category)->orderBy('current_price', 'ASC')->paginate(20);
+        }
+        if ($parameter == 4) {
+            $products = DB::table('products')->where('category_id', $category)->orderBy('current_price', 'DESC')->paginate(20);
+        } else {
+            $products = DB::table('products')->where('category_id', $category)->paginate(20);
+        }
+
+
+
+
         return view('affiliate.filteredproducts', compact('products'));
     }
 
@@ -56,10 +78,10 @@ class ProductsController extends Controller
 
         //COUNT ITEMS IN CATEGORIES
         $categoryCount = categoryCount();
-
+        $cat_id = $category;
 
         //dd($subcategories);
-        return view('affiliate.category', compact('categoryCount', 'subcategories', 'products', 'categories',  'index', 'name', 'items'));
+        return view('affiliate.category', compact('cat_id', 'categoryCount', 'subcategories', 'products', 'categories',  'index', 'name', 'items'));
     }
 
 
@@ -107,7 +129,7 @@ class ProductsController extends Controller
         $categoryCount = categoryCount();
 
         $products = Product::where('product_name', 'like', '%' . $keyword . '%')->paginate(10);
-        //$products->appends (array ('keyword' => $keyword));
+        
         $products->appends(['search' => $keyword]);
         return view('affiliate.searchproducts', compact('products', 'categoryCount', 'categories', 'index'));
         //return $products;
