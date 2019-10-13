@@ -2,7 +2,7 @@
 
 <style>
         .category-link:hover {
-            background-color: #85C1E9 ;
+            background-color:lightseagreen;
 
         }
 

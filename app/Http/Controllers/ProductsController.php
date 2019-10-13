@@ -8,45 +8,20 @@ use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
-    public function filterProducts(Request $request)
-    {
-
-        $category = $request->id;
-        $parameter = $request->parameter;
-        dd($category);
-
-
-
-
-        if ($parameter == '2') {
-            $products = DB::table('products')->where('category_id', $category)->orderBy('visits', 'DESC')->paginate(20);
-        }
-        if ($parameter == 3) {
-            $products = DB::table('products')->where('category_id', $category)->orderBy('current_price', 'ASC')->paginate(20);
-        }
-        if ($parameter == 4) {
-            $products = DB::table('products')->where('category_id', $category)->orderBy('current_price', 'DESC')->paginate(20);
-        } else {
-            $products = DB::table('products')->where('category_id', $category)->paginate(20);
-        }
-
-
-
-
-        return view('affiliate.filteredproducts', compact('products'));
-    }
 
 
     public function index()
     {
+        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
         $index = 0;
         $categories = DB::table('categories')->get();
         $categoryCount = categoryCount();
         $trendingProducts = DB::table('products')->orderBy('visits', 'DESC')->paginate(12);
-        return view('affiliate.index', compact('categoryCount', 'trendingProducts', 'categories', 'index'));
+        return view('affiliate.index', compact('subcats','categoryCount', 'trendingProducts', 'categories', 'index'));
     }
     public function products()
     {
+        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
         $index = 0;
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->paginate(20);
@@ -54,11 +29,12 @@ class ProductsController extends Controller
         $categoryCount = categoryCount();
 
 
-        return view('affiliate.products', compact('products', 'categories', 'categoryCount', 'index'));
+        return view('affiliate.products', compact('subcats','products', 'categories', 'categoryCount', 'index'));
     }
 
     public function show($slug)
     {
+        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
 
         $index = 0;
         $categoryDetails = DB::table('categories')->where('category_slug', $slug)->first();
@@ -81,7 +57,7 @@ class ProductsController extends Controller
         $cat_id = $category;
 
         //dd($subcategories);
-        return view('affiliate.category', compact('cat_id', 'categoryCount', 'subcategories', 'products', 'categories',  'index', 'name', 'items'));
+        return view('affiliate.category', compact('subcats','cat_id', 'categoryCount', 'subcategories', 'products', 'categories',  'index', 'name', 'items'));
     }
 
 
@@ -96,7 +72,7 @@ class ProductsController extends Controller
 
     public function popular()
     {
-
+        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
         $index = 0;
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->orderBy('visits', 'DESC')->paginate(20);
@@ -104,12 +80,12 @@ class ProductsController extends Controller
         $categoryCount = categoryCount();
 
 
-        return view('affiliate.popular', compact('products', 'categories', 'categoryCount', 'index'));
+        return view('affiliate.popular', compact('subcats','products', 'categories', 'categoryCount', 'index'));
     }
 
     public function cheapest()
     {
-
+        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
         $index = 0;
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->orderBy('current_price', 'ASC')->paginate(20);
@@ -117,11 +93,11 @@ class ProductsController extends Controller
         $categoryCount = categoryCount();
 
 
-        return view('affiliate.popular', compact('products', 'categories', 'categoryCount', 'index'));
+        return view('affiliate.popular', compact('subcats','products', 'categories', 'categoryCount', 'index'));
     }
 
     public function search(Request $request)
-    {
+    {$subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
         $keyword = $request->input('search');
         $index = 0;
         //return $request->input('search');
@@ -133,7 +109,7 @@ class ProductsController extends Controller
 
                             $products->appends (array ('search' => $keyword));
             $categoryCount = categoryCount();
-        return view('affiliate.searchproducts', compact('products', 'categories', 'categoryCount', 'index'));
+        return view('affiliate.searchproducts', compact('keyword','subcats','products', 'categories', 'categoryCount', 'index'));
         //return $products;
         //exit();
 

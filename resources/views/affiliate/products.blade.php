@@ -1,46 +1,38 @@
 <style>
     .col-md-6:hover {
         outline: 1px solid black;
-
+opacity: 1;
     }
 
 </style>
+
+
+
 @include('affiliate.header')
 	<!--================ End Header Menu Area =================-->
 
 
 
 	<!-- ================ category section start ================= -->
-  <section class="section-margin--small mb-5">
+  <section class="section-margin--small mb-5" style=" opacity: 0.9;">
     <div class="container">
-      <div class="row">
+      <div class="row" >
             <div class="col-xl-3 col-lg-4 col-md-5">
 
 @include('affiliate.sidemenu')
             </div>
-    <div class="col-xl-9 col-lg-8 col-md-7 card">
-            <div class="card-header">
-                    Featured
+
+    <div class="col-xl-9 col-lg-8 col-md-7">
+            <div class="card">
+            <div class="card-header text-center">
+
+                    All Products
                   </div>
         <div class="card-body">
 
           <!-- Start Best Seller -->
           <section class="lattest-product-area pb-40 category-list">
-                <div class="input-group">
 
-                        <div class="input-group-btn search-panel">
-                            <button style="width:400px" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                <span id="search_concept">Sort by: </span> <span class="caret"></span>
-                            </button>
-                            <ul style="width:400px" class="dropdown-menu" role="menu">
-                              <li><a href="#contains"> Cheapest first</a></li>
-                              <li><a href="#its_equal"> Latest first</a></li>
-                              <li><a href="#greather_than"> Most Popular</a></li>
-
-                            </ul>
-                        </div>
-
-                    </div>
                 <div>
                         <ul class="pagination justify-content-center" style="margin:20px 0">
                                 <li class="page-item">{{ $products->links() }}</li>
@@ -72,7 +64,7 @@
                         <p>Seller: {{ $product->seller }}</p>
                     <p  class=""><a  style="color:black;font-size: 15px" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
                     <p style="color:red" ><strike>Kshs {{ number_format($product->former_price) }}</strike> (-{{ ceil(((($product->former_price)-($product->current_price))/($product->former_price))*100)}}%) </p>
-                    <p style="color:green" >Kshs {{ number_format($product->current_price) }}</p>
+                    <p style="color:green;font-size:16px" >Kshs {{ number_format($product->current_price) }}</p>
                   </div>
                 </div>
               </div>
@@ -116,7 +108,7 @@
           </section>
           <!-- End Best Seller -->
         </div>
-      </div></div>
+      </div></div></div>
     </div>
   </section>
 

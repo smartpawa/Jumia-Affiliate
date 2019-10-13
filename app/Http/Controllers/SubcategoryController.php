@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class SubcategoryController extends Controller
 {
    public function show($slug){
-
+    $subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
 
     $index = 0;
     $categoryDetails = DB::table('subcategories')->where('subcategory_slug', $slug)->first();
@@ -22,11 +22,10 @@ class SubcategoryController extends Controller
 
 
 
-
-    $categoryCount = array();
+    $categoryCount = categoryCount();;
 
     //dd($subcategories);
-    return view('affiliate.subcategory', compact('products', 'categories',  'index', 'name', 'items'));
+    return view('affiliate.subcategory', compact('subcats','categoryCount','products', 'categories',  'index', 'name', 'items'));
 
 
    }

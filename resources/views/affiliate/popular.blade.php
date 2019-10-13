@@ -4,7 +4,7 @@
 
 
 	<!-- ================ category section start ================= -->
-  <section class="section-margin--small mb-5">
+  <section class="section-margin--small mb-5" style=" opacity: 0.9;">
     <div class="container">
       <div class="row">
 @include('affiliate.sidemenu')

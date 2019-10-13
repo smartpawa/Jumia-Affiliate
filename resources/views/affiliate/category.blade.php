@@ -2,10 +2,17 @@
 
 	<!--================ End Header Menu Area =================-->
 
+    @if($products->isEmpty())
+    <script>
+    alert("We currently have no items in this Category.We are however working on it.Check later!");
+    history.back();
+    </script>
 
+
+    @endif
 
 	<!-- ================ category section start ================= -->
-  <section class="section-margin--small mb-5">
+  <section class="section-margin--small mb-5" style=" opacity: 0.9;">
     <div class="container">
 
       <div class="row">
@@ -60,15 +67,16 @@
 
 
 
-          <div class="col-xl-9 col-lg-8 col-md-7 card">
-                <div class="card-header">
-                        {{ $name }} </u>({{ $items }} )
+          <div class="col-xl-9 col-lg-8 col-md-7">
+                <div class="card">
+                <div class="card-header text-center">
+                        {{ $name }}  ({{ $items }} )
                       </div>
             <div class="card-body">
 
               <!-- Start Best Seller -->
               <section class="lattest-product-area pb-40 category-list">
-               @include('affiliate.filter')
+
                     <div>
                             <ul class="pagination justify-content-center" style="margin:20px 0">
                                     <li class="page-item">{{ $products->links() }}</li>
@@ -135,7 +143,7 @@
           </section>
           <!-- End Best Seller -->
         </div>
-      </div>
+      </div>  </div>
     </div>
     </div>
   </section>

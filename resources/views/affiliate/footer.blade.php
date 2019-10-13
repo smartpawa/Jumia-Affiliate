@@ -6,52 +6,25 @@
               <div class="row section_gap">
                   <div class="col-lg-3 col-md-6 col-sm-6">
                       <div class="single-footer-widget tp_widgets">
-                          <h4 class="footer_title large_title">Our Mission</h4>
-                          <p>
-                              So seed seed green that winged cattle in. Gathering thing made fly you're no
-                              divided deep moved us lan Gathering thing us land years living.
+                          <img src="/img/logo.png" height="100px">
+
+                          <p style="text-align:justify">
+                              We bring you the latest and trending products that are on sale
+                              on the leading ecommerce platforms in Kenya.We link you to these stores
+                              by relieving you the burden of searching through each store!We are however
+                              not middlemen or sales representatives from any of these stores.We dont determine prices
+                              or make any decisions for these stores.We only inform you on what is on sale.
                           </p>
-                          <p>
-                              So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved
-                          </p>
+
                       </div>
                   </div>
-                  <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
-                      <div class="single-footer-widget tp_widgets">
-                          <h4 class="footer_title">Quick Links</h4>
-                          <ul class="list">
-                              <li><a href="#">Home</a></li>
-                              <li><a href="#">Shop</a></li>
-                              <li><a href="#">Blog</a></li>
-                              <li><a href="#">Product</a></li>
-                              <li><a href="#">Brand</a></li>
-                              <li><a href="#">Contact</a></li>
-                          </ul>
-                      </div>
-                  </div>
-                  <div class="col-lg-2 col-md-6 col-sm-6">
-                      <div class="single-footer-widget instafeed">
-                          <h4 class="footer_title">Gallery</h4>
-                          <ul class="list instafeed d-flex flex-wrap">
-                              <li><img src="img/gallery/r1.jpg" alt=""></li>
-                              <li><img src="img/gallery/r2.jpg" alt=""></li>
-                              <li><img src="img/gallery/r3.jpg" alt=""></li>
-                              <li><img src="img/gallery/r5.jpg" alt=""></li>
-                              <li><img src="img/gallery/r7.jpg" alt=""></li>
-                              <li><img src="img/gallery/r8.jpg" alt=""></li>
-                          </ul>
-                      </div>
-                  </div>
+
+
                   <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
                       <div class="single-footer-widget tp_widgets">
                           <h4 class="footer_title">Contact Us</h4>
                           <div class="ml-40">
-                              <p class="sm-head">
-                                  <span class="fa fa-location-arrow"></span>
-                                  Head Office
-                              </p>
-                              <p>123, Main Street, Your City</p>
-
+                             
                               <p class="sm-head">
                                   <span class="fa fa-phone"></span>
                                   Phone Number
