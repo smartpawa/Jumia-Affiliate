@@ -12,16 +12,16 @@ class ProductsController extends Controller
 
     public function index()
     {
-        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
+        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(14);
         $index = 0;
         $categories = DB::table('categories')->get();
         $categoryCount = categoryCount();
-        $trendingProducts = DB::table('products')->orderBy('visits', 'DESC')->paginate(12);
+        $trendingProducts = DB::table('products')->orderBy('visits', 'DESC')->paginate(8);
         return view('affiliate.index', compact('subcats','categoryCount', 'trendingProducts', 'categories', 'index'));
     }
     public function products()
     {
-        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
+        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(14);
         $index = 0;
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->paginate(20);
@@ -34,7 +34,7 @@ class ProductsController extends Controller
 
     public function show($slug)
     {
-        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
+        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(14);
 
         $index = 0;
         $categoryDetails = DB::table('categories')->where('category_slug', $slug)->first();
@@ -72,7 +72,7 @@ class ProductsController extends Controller
 
     public function popular()
     {
-        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
+        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(14);
         $index = 0;
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->orderBy('visits', 'DESC')->paginate(20);
@@ -85,7 +85,7 @@ class ProductsController extends Controller
 
     public function cheapest()
     {
-        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
+        $subcats=DB::table('subcategories')->inRandomOrder()->paginate(14);
         $index = 0;
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->orderBy('current_price', 'ASC')->paginate(20);
@@ -97,7 +97,7 @@ class ProductsController extends Controller
     }
 
     public function search(Request $request)
-    {$subcats=DB::table('subcategories')->inRandomOrder()->paginate(10);
+    {$subcats=DB::table('subcategories')->inRandomOrder()->paginate(14);
         $keyword = $request->input('search');
         $index = 0;
         //return $request->input('search');
@@ -105,7 +105,7 @@ class ProductsController extends Controller
         $categories = DB::table('categories')->get();
         $keyword = $request->input('search');
         $products = Product::where('product_name', 'like', '%' .$keyword. '%')
-                            ->paginate(10);
+                            ->paginate(14);
 
                             $products->appends (array ('search' => $keyword));
             $categoryCount = categoryCount();

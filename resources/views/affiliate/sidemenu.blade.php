@@ -11,8 +11,8 @@
 
 
     <div class="sidebar-categories">
-      <div class="head">Browse Categories</div>
-      <ul class="list-group">
+      <div id="browsecategories" class="head">Browse Categories</div>
+      <ul id="categorylist" class="list-group">
 
             @foreach ($categories as $category )
 
@@ -26,5 +26,12 @@
 
           </ul>
     </div>
-
+<script>
+         $(document).ready(function() {
+    var screenwidth=screen.width();
+    if(screenwidth<700){
+        $('#categorylist').hide();
+    }
+         });
+</script>
 

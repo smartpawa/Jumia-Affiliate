@@ -40,7 +40,7 @@
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container" style=" color">
-          <a class="navbar-brand logo_h" href="/"><img height="70px"src="img/logo.png" alt=""></a>
+          <a class="navbar-brand logo_h" href="/"><img height="70px"src="/img/logo.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -92,8 +92,8 @@ function search(){
   <div class=" card-header">
         <ul class="list-inline">
             @foreach($subcats as $subcat)
-        <a href="/subcategories/{{$subcat->subcategory_slug}}">
-            <button class="btn btn-default" style="">{{$subcat->subcategory_name}}</button></a>
+        <a style="margin:1px" href="/subcategories/{{$subcat->subcategory_slug}}">
+            <button style="height:35px;border-radius:50%" class="btn btn-default" style="">{{$subcat->subcategory_name}}</button></a>
 @endforeach
   </div>
 	<!--================ End Header Menu Area =================-->

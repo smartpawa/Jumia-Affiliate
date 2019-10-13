@@ -14,10 +14,10 @@
           </div>
           <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
             <div class="hero-banner__content">
-              <h4>Shop is fun</h4>
-              <h1>Browse Our Premium Product</h1>
-              <p>Us which over of signs divide dominion deep fill bring theyre meat beho upon own earth without morning over third. Their male dry. They are great appear whose land fly grass.</p>
-              <a class="button button-hero" href="#">Browse Now</a>
+              <h4>Shopping simplified.</h4>
+
+              <p>Latest and popular select products from the best vendors in the country.</p>
+              <a class="button button-hero" href="/all">Browse Now</a>
             </div>
           </div>
         </div>
@@ -35,8 +35,8 @@
     <section class="section-margin calc-60px">
       <div class="container">
         <div class="section-intro pb-60px" style=" text-align:center">
-          <p>Popular products in the market</p>
-          <h2>Trending <span class="section-intro__style"> Products</span></h2>
+          <p style="color:white">Popular products in the market</p>
+          <h2 style="color:white"> <span class="section-intro__style">Trending Products</span></h2>
         </div>
         <div class="row">
                 <style>
@@ -116,21 +116,21 @@
     <!-- ================ trending product section end ================= -->
 
 
-  
+
 
     <!-- ================ Blog section start ================= -->
     <section class="blog">
       <div class="container">
-        <div class="section-intro pb-60px">
-          <p>Popular Item in the market</p>
-          <h2>Latest <span class="section-intro__style">News</span></h2>
+        <div class="section-intro pb-60px text-center">
+
+          <h2 style="color:white"> <span class="section-intro__style text-uppercase">Latest from our blog</span></h2>
         </div>
 
         <div class="row">
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
             <div class="card card-blog">
               <div class="card-blog__img">
-                <img class="card-img rounded-0" src="img/blog/blog1.png" alt="">
+                <img class="card-img rounded-0" src="img/background1.jpg" alt="">
               </div>
               <div class="card-body">
                 <ul class="card-blog__info">
@@ -147,7 +147,7 @@
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
             <div class="card card-blog">
               <div class="card-blog__img">
-                <img class="card-img rounded-0" src="img/blog/blog2.png" alt="">
+                <img class="card-img rounded-0" src="img/background1.jpg" alt="">
               </div>
               <div class="card-body">
                 <ul class="card-blog__info">
@@ -164,7 +164,7 @@
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
             <div class="card card-blog">
               <div class="card-blog__img">
-                <img class="card-img rounded-0" src="img/blog/blog3.png" alt="">
+                <img class="card-img rounded-0" src="img/background1.jpg" alt="">
               </div>
               <div class="card-body">
                 <ul class="card-blog__info">
