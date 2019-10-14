@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 
 function categoryCount(){
- $categories = DB::table('categories')->get();
+ $categories = DB::table('maincategories')->get();
  foreach ($categories as $category) {
      $categoryID = $category->id;
      $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
