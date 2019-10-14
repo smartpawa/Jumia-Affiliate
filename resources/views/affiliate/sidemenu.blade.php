@@ -28,10 +28,13 @@
     </div>
 <script>
          $(document).ready(function() {
-    var screenwidth=screen.width();
+    var screenwidth=screen.width;
     if(screenwidth<700){
         $('#categorylist').hide();
     }
+
+
+    $('#browsecategories').
          });
 </script>
 
