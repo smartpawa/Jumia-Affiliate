@@ -27,14 +27,19 @@
           </ul>
     </div>
 <script>
-         $(document).ready(function() {
-    var screenwidth=screen.width;
-    if(screenwidth<700){
-        $('#categorylist').hide();
-    }
+var w = screen.width;
+
+if(w < 726){
+    $("#browsecategories").text("View Categories");
+    $("#categorylist").hide();
+    $("#browsecategories").click(function(){
+  $("#categorylist").toggle(500);
+});
+}
 
 
-    $('#browsecategories').
-         });
+
+
+
 </script>
 

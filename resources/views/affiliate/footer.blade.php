@@ -3,7 +3,7 @@
   <footer>
       <div class="footer-area">
           <div class="container">
-              <div class="row section_gap">
+              <div class="row">
                   <div class="col-lg-3 col-md-6 col-sm-6">
                       <div class="single-footer-widget tp_widgets">
                           <img src="/img/logo.png" height="100px">
@@ -24,7 +24,7 @@
                       <div class="single-footer-widget tp_widgets">
                           <h4 class="footer_title">Contact Us</h4>
                           <div class="ml-40">
-                             
+
                               <p class="sm-head">
                                   <span class="fa fa-phone"></span>
                                   Phone Number

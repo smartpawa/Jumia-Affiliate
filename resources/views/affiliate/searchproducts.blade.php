@@ -11,6 +11,7 @@
     @include('affiliate.header')
         <!--================ End Header Menu Area =================-->
 
+<<<<<<< HEAD
 
 
         <!-- ================ category section start ================= -->
@@ -27,6 +28,30 @@
                 <div class="card-header text-center">
 
                 Products matching '{{ $keyword}}'
+=======
+@include('affiliate.sidemenu')
+          </div>
+  <div class="col-xl-9 col-lg-8 col-md-7 card">
+          <div class="card-header">
+                  Featured
+                </div>
+      <div class="card-body">
+
+        <!-- Start Best Seller -->
+        <section class="lattest-product-area pb-40 category-list">
+              <div class="input-group">
+
+                      <div class="input-group-btn search-panel">
+                          <button style="width:400px" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                              <span id="search_concept">Sort by: </span> <span class="caret"></span>
+                          </button>
+                          <ul style="width:400px" class="dropdown-menu" role="menu">
+                            <li><a href="#contains"> Cheapest first</a></li>
+                            <li><a href="#its_equal"> Latest first</a></li>
+                            <li><a href="#greather_than"> Most Popular</a></li>
+
+                          </ul>
+>>>>>>> cd402777ef2d7115370619255704670a2cac29cb
                       </div>
             <div class="card-body">
 
