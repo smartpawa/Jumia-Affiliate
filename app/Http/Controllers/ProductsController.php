@@ -8,13 +8,18 @@ use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
+public function filterProducts(Request $request){
 
+
+    return view('affiliate.filtered');
+
+}
 
     public function index()
     {
         $subcats=DB::table('subcategories')->inRandomOrder()->paginate(14);
         $index = 0;
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('maincategories')->get();
         $categoryCount = categoryCount();
         $trendingProducts = DB::table('products')->orderBy('visits', 'DESC')->paginate(8);
         return view('affiliate.index', compact('subcats','categoryCount', 'trendingProducts', 'categories', 'index'));
@@ -23,7 +28,7 @@ class ProductsController extends Controller
     {
         $subcats=DB::table('subcategories')->inRandomOrder()->paginate(14);
         $index = 0;
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('maincategories')->get();
         $products = DB::table('products')->paginate(20);
 
         $categoryCount = categoryCount();
@@ -37,7 +42,7 @@ class ProductsController extends Controller
         $subcats=DB::table('subcategories')->inRandomOrder()->paginate(14);
 
         $index = 0;
-        $categoryDetails = DB::table('categories')->where('category_slug', $slug)->first();
+        $categoryDetails = DB::table('maincategories')->where('category_slug', $slug)->first();
         $category = $categoryDetails->id;
 
 
@@ -47,7 +52,7 @@ class ProductsController extends Controller
         $name = $categoryDetails->category_name;
         $items = DB::table('products')->where('category_id', $category)->count();
 
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('maincategories')->get();
         $products = DB::table('products')->where('category_id', $category)->paginate(20);
 
 
@@ -74,7 +79,7 @@ class ProductsController extends Controller
     {
         $subcats=DB::table('subcategories')->inRandomOrder()->paginate(14);
         $index = 0;
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('maincategories')->get();
         $products = DB::table('products')->orderBy('visits', 'DESC')->paginate(20);
 
         $categoryCount = categoryCount();
@@ -87,7 +92,7 @@ class ProductsController extends Controller
     {
         $subcats=DB::table('subcategories')->inRandomOrder()->paginate(14);
         $index = 0;
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('maincategories')->get();
         $products = DB::table('products')->orderBy('current_price', 'ASC')->paginate(20);
 
         $categoryCount = categoryCount();
@@ -102,16 +107,9 @@ class ProductsController extends Controller
         $index = 0;
         //return $request->input('search');
         $index = 0;
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('maincategories')->get();
         $keyword = $request->input('search');
         $products = Product::where('product_name', 'like', '%' .$keyword. '%')
-<<<<<<< HEAD
-                            ->paginate(14);
-
-                            $products->appends (array ('search' => $keyword));
-            $categoryCount = categoryCount();
-        return view('affiliate.searchproducts', compact('keyword','subcats','products', 'categories', 'categoryCount', 'index'));
-=======
                             ->paginate(10);
 
                             $products->appends (array ('keyword' => $keyword));
@@ -120,8 +118,7 @@ class ProductsController extends Controller
                     $categoryID = $category->id;
                     $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
             }
-        return view('affiliate.searchproducts', compact('products', 'categories', 'categoryCount', 'index'));
->>>>>>> cd402777ef2d7115370619255704670a2cac29cb
+        return view('affiliate.searchproducts', compact('keyword','subcats','products', 'categories', 'categoryCount', 'index'));
         //return $products;
         //exit();
 

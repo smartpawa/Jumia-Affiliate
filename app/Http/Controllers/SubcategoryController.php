@@ -17,7 +17,7 @@ class SubcategoryController extends Controller
     $name = $categoryDetails->subcategory_name;
     $items = DB::table('products')->where('subcategory_id', $category)->count();
 
-    $categories = DB::table('categories')->get();
+    $categories = DB::table('maincategories')->get();
     $products = DB::table('products')->where('subcategory_id', $category)->paginate(20);
 
 

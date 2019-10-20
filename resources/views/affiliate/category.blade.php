@@ -68,24 +68,58 @@
 
 
           <div class="col-xl-9 col-lg-8 col-md-7">
-                <div class="card">
-                <div class="card-header text-center">
-                        {{ $name }}  ({{ $items }} )
-                      </div>
-            <div class="card-body">
+            <div class="card">
+            <div class="card-header text-center">
 
-              <!-- Start Best Seller -->
-              <section class="lattest-product-area pb-40 category-list">
+                    All Products
+                  </div>
+        <div class="card-body">
 
-                    <div>
-                            <ul class="pagination justify-content-center" style="margin:20px 0">
-                                    <li class="page-item">{{ $products->links() }}</li>
-                                  </ul>
+          <!-- Start Best Seller -->
+          <section class="lattest-product-area pb-40 category-list">
+              <div> <label>Sort by: </label>
+                <label class="radio-inline"><input type="radio" value="1" name="optradio">Most Popular</label>
 
 
+                    <label class="radio-inline"><input value="2" type="radio" name="optradio" checked>Cheapest Price </label>
+                    <label class="radio-inline"><input type="radio" value="3" name="optradio">Highest price</label>
 
-                    </div>
-            <div class="row" id="productsection">
+
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             <div>
+                        <ul class="pagination justify-content-center" style="margin:20px 0">
+                                <li class="page-item">{{ $products->links() }}</li>
+                              </ul>
+
+
+
+                </div>
+            <div class="row" id="listproducts">
+<style>
+        .col-md-6:hover {
+            outline: 1px solid black;
+
+        }
+</style>
 @foreach($products as $product)
               <div class="col-md-6 col-lg-3" id="{{ $product->id }}">
                 <div class="card text-center card-product">
@@ -100,37 +134,40 @@
                   </div>
                   <div class="card-body" style=" font-size: 13px">
                         <p>Seller: {{ $product->seller }}</p>
-                        <p  class=""><a  style="color:black;font-size: 15px" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
-                        <p style="color:red" ><strike>Kshs {{ number_format($product->former_price) }}</strike> (-{{ ceil(((($product->former_price)-($product->current_price))/($product->former_price))*100)}}%) </p>
-                        <p style="color:green" >Kshs {{ number_format($product->current_price) }}</p>
-                      </div>
+                    <p  class=""><a  style="color:black;font-size: 15px" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
+                    <p style="color:red" ><strike>Kshs {{ number_format($product->former_price) }}</strike> (-{{ ceil(((($product->former_price)-($product->current_price))/($product->former_price))*100)}}%) </p>
+                    <p style="color:green;font-size:16px" >Kshs {{ number_format($product->current_price) }}</p>
+                  </div>
                 </div>
               </div>
 
 
               <script>
-                    jQuery(document).ready(function(){
-                       jQuery('#{{ $product->id }}').click(function(e){
+                jQuery(document).ready(function(){
+                   jQuery('#{{ $product->id }}').click(function(e){
 
-                          $.ajaxSetup({
-                             headers: {
-                                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                             }
-                         });
-                          jQuery.ajax({
-                             url: "{{ url('/addvisitcount') }}",
-                             method: 'post',
-                             data: {
-                                id: {{ $product->id }}
+                      $.ajaxSetup({
+                         headers: {
+                             'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                         }
+                     });
+                      jQuery.ajax({
+                         url: "{{ url('/addvisitcount') }}",
+                         method: 'post',
+                         data: {
+                            id: {{ $product->id }}
 
-                             },
-                             success: function(result){
+                         },
+                         success: function(result){
 
-                             }});
-                          });
-                       });
-                 </script>
+                         }});
+                      });
+                   });
+             </script>
+
+
 @endforeach
+
             </div>
             <div>
                     <ul class="pagination justify-content-center" style="margin:20px 0">
@@ -143,7 +180,7 @@
           </section>
           <!-- End Best Seller -->
         </div>
-      </div>  </div>
+      </div></div>  </div>
     </div>
     </div>
   </section>
@@ -151,3 +188,27 @@
 
 
 @include('affiliate.footer')
+
+
+<script>
+        jQuery(document).ready(function(){
+           jQuery('[name="optradio"]').click(function(e){
+
+              $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                 }
+             });
+              jQuery.ajax({
+                 url: "{{ url('/filterproducts') }}",
+                 method: 'post',
+                 data: {
+id:"{{$cat_id}}"
+
+                 },
+                 success: function(result){
+jQuery('#listproducts').load('/filterproducts');
+                 }});
+              });
+           });
+     </script>

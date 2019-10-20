@@ -6,7 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="_token" content="{{csrf_token()}}" />
   <title>Best Online Deals</title>
-	<link rel="icon" href="img/Fevicon.png" type="image/png">
+    <link rel="icon" href="/img/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="{{ asset ('vendors/bootstrap/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset ('vendors/fontawesome/css/all.min.css') }}">
 	<link rel="stylesheet" href="{{ asset ('vendors/themify-icons/themify-icons.css') }}">
@@ -89,6 +93,74 @@ function search(){
     </div>
 
   </header>
+  <div class="card-header" id="smallnavbar">
+        <ul class="list-inline align-right">
+
+                <a  style="color:white; margin:1px"  href="/">   <button class="btn btn-primary">Home</button></a>
+                <a style="color:white;margin:1px"  href="/all">   <button class="btn btn-primary">All Products</button></a>
+                <a style="color:white;margin:1px" href="/popular">   <button class="btn btn-primary">Most Popular</button></a>
+                <a style="color:white;margin:1px"   href="/cheapest">   <button class="btn btn-primary">Cheapest Deals</button></a>
+                <a style="color:white;margin:1px"   href="/blog">   <button class="btn btn-primary">Our Blog</button></a>
+              </ul>
+
+  </div>
+
+  <div class="card-header" id="search2" style="text-align:center">
+        <ul class="nav-shop" style="text-align:center">
+                <li class="nav-item" style="text-align:center">
+                    <div>
+
+
+  <form id="searchform" method="GET" action='{{ url("/search") }}'>
+      {{ csrf_field() }}
+      <div class="input-group md-form form-sm form-2 pl-0">
+              <input class="form-control my-0 py-1 red-border" name="search" type="text" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <span class="input-group-text red lighten-3" onclick="search()" id="basic-text1"><i class="fas fa-search text-grey"
+                    aria-hidden="true"></i></span>
+              </div>
+            </div>
+  </form>
+  <script>
+  function search(){
+
+      document.getElementById("searchform").submit();
+
+
+  }
+  </script>
+
+                    </div></li>
+
+              </ul>
+
+  </div>
+
+
+  <script>
+        var w = screen.width;
+
+        if(w < 726){
+
+            $("#navbarSupportedContent").hide();
+
+        }
+        if(w > 726){
+
+$("#smallnavbar").hide();
+$("#search2").hide();
+
+}
+
+
+
+
+
+
+        </script>
+
+
+
   <div class=" card-header">
         <ul class="list-inline">
             @foreach($subcats as $subcat)
