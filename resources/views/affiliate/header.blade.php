@@ -7,17 +7,14 @@
   <meta name="_token" content="{{csrf_token()}}" />
   <title>Best Online Deals</title>
     <link rel="icon" href="/img/logo.png" type="image/png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
   <link rel="stylesheet" href="{{ asset ('vendors/bootstrap/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset ('vendors/fontawesome/css/all.min.css') }}">
 	<link rel="stylesheet" href="{{ asset ('vendors/themify-icons/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset ('vendors/nice-select/nice-select.css') }}">
   <link rel="stylesheet" href="{{ asset ('vendors/owl-carousel/owl.theme.default.min.css') }}">
   <link rel="stylesheet" href="{{ asset ('vendors/owl-carousel/owl.carousel.min.css') }}">
-  <script src="{{ asset ('vendors/jquery/jquery-3.2.1.min.js') }}"></script>
+  <script src="{{ asset ('js/jquery-3.2.1.min.js') }}"></script>
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
@@ -140,12 +137,12 @@ function search(){
   <script>
         var w = screen.width;
 
-        if(w < 726){
+        if(w < 1000){
 
             $("#navbarSupportedContent").hide();
 
         }
-        if(w > 726){
+        if(w > 1000){
 
 $("#smallnavbar").hide();
 $("#search2").hide();

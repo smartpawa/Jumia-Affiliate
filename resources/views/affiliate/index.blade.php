@@ -46,6 +46,7 @@
                         }
                 </style>
                 @include('affiliate.sidemenu')
+
                     <div class="col-xl-9 col-lg-9 col-md-7">
 
                           <!-- Start Best Seller -->

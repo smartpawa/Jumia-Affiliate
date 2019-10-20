@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->integer('subcategory_id');
             $table->String('seller');
             $table->integer('visits')->default(1);
+            $table->integer('brand_id');
             $table->timestamps();
         });
     }

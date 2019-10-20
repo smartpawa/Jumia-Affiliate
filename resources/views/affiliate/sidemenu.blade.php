@@ -11,7 +11,7 @@
 
 
     <div class="sidebar-categories">
-      <div id="browsecategories" class="head">Browse Categories</div>
+      <div id="browsecategories" class="head">Browse Categories <i class=" fa fa-plus"> </i></div>
       <ul id="categorylist" class="list-group">
 
             @foreach ($categories as $category )
@@ -27,17 +27,18 @@
           </ul>
     </div>
 <script>
+ $("#browsecategories").click(function(){
+
+  $("#categorylist").toggle(500);
+   }
+
 var w = screen.width;
 
-if(w < 726){
+if(w < 1000){
     $("#browsecategories").text("View Categories");
     $("#categorylist").hide();
-    $("#browsecategories").click(function(){
-  $("#categorylist").toggle(500);
-});
+
 }
-
-
 
 
 

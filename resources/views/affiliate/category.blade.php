@@ -20,9 +20,9 @@
 
 
         <div class="col-xl-3 col-lg-4 col-md-5">
-                <div class="sidebar-categories">
-                        <div class="head">Sub Categories</div>
-                        <ul class="list-group">
+                <div class="sidebar-categories" >
+                        <div class="head" id="sub">Sub Categories   <i class=" fa fa-plus"></i></div>
+                        <ul class="list-group" id="subcategories" >
 
                                 @foreach ($subcategories as $subcategory )
 
@@ -44,9 +44,9 @@
 
 
 
-                        <div class="sidebar-categories">
-                          <div class="head">Other Categories</div>
-                          <ul class="list-group">
+                        <div class="sidebar-categories" >
+                          <div class="head" id="main">Other Categories <i class=" fa fa-plus"></i></div>
+                          <ul class="list-group" id="maincategories">
 
                                 @foreach ($categories as $category )
 
@@ -64,12 +64,35 @@
 
 
           </div>
+<script>
+var w = screen.width;
+
+if(w < 726){
+$("#maincategories").hide();
+    $("#subcategories").hide();
+
+    //TOGGLE SUB CATEGORIES
+    $("#sub").click(function(){
+  $("#subcategories").toggle(500);
+});
+
+//TOGGLE MAIN CATEGORIES
+  $("#main").click(function(){
+  $("#maincategories").toggle(500);
+});
+}
+
+
+
+
+
+</script>
 
 
 
           <div class="col-xl-9 col-lg-8 col-md-7">
             <div class="card">
-            <div class="card-header text-center">
+            <div class="card-header text-center alert alert-info">
 
                     All Products
                   </div>
@@ -78,15 +101,17 @@
           <!-- Start Best Seller -->
           <section class="lattest-product-area pb-40 category-list">
               <div> <label>Sort by: </label>
-                <label class="radio-inline"><input type="radio" value="1" name="optradio">Most Popular</label>
+                <form method="POST">
+                      <label class="radio-inline"><input  class="filter" type="radio" value="0" name="optradio">Default </label>
 
+                <label class="radio-inline"><input class="filter" type="radio" value="1" name="optradio">Most Popular</label>
 
-                    <label class="radio-inline"><input value="2" type="radio" name="optradio" checked>Cheapest Price </label>
-                    <label class="radio-inline"><input type="radio" value="3" name="optradio">Highest price</label>
-
+{{csrf_field()}}
+                    <label class="radio-inline"><input class="filter" value="2" type="radio" name="optradio" checked>Cheapest Price </label>
+                    <label class="radio-inline"><input class="filter" type="radio" value="3" name="optradio">Highest price</label>
+</form>
 
               </div>
-
 
 
 
@@ -113,7 +138,7 @@
 
 
                 </div>
-            <div class="row" id="listproducts">
+            <div class="row" id="listproducts" >
 <style>
         .col-md-6:hover {
             outline: 1px solid black;
@@ -177,10 +202,11 @@
 
 
             </div>
+            </div>
           </section>
           <!-- End Best Seller -->
         </div>
-      </div></div>  </div>
+      </div></div>
     </div>
     </div>
   </section>
@@ -190,25 +216,33 @@
 @include('affiliate.footer')
 
 
-<script>
-        jQuery(document).ready(function(){
-           jQuery('[name="optradio"]').click(function(e){
+  <script>
+                jQuery(document).ready(function(){
+                   jQuery('.filter').click(function(e){
 
-              $.ajaxSetup({
-                 headers: {
-                     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                 }
-             });
-              jQuery.ajax({
-                 url: "{{ url('/filterproducts') }}",
-                 method: 'post',
-                 data: {
-id:"{{$cat_id}}"
+                      $.ajaxSetup({
+                         headers: {
+                             'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                         }
+                     });
+                      jQuery.ajax({
+                         url: "/filter",
+                         method: 'get',
+                         data: {
+                            id: {{ $cat_id }},
+                            parameter:this.value
 
-                 },
-                 success: function(result){
-jQuery('#listproducts').load('/filterproducts');
-                 }});
-              });
-           });
-     </script>
+                         },
+                         success: function(result){
+$('#listproducts').html(result);
+                         },
+                         error:function(error){
+                             console.log(error);
+                         }
+
+
+
+                        });
+                      });
+                   });
+             </script>
