@@ -21,6 +21,19 @@
 <body style=" background-image:url('/img/background.jpg'),url('/img/background1.jpg')">
 
     <style>
+        .btn-outline-success {
+
+ color: #28a745;
+
+ background-color: transparent;
+
+ background-image: none;
+
+ border-radius: 35px;
+
+ border: 1px solid rgba(40, 167, 69, 0.75);
+
+}
 
         .btn:hover{
             background-color:lightseagreen;
@@ -88,7 +101,9 @@ function search(){
         </div>
       </nav>
     </div>
-
+<div class="row">
+    <marquee behavior="scroll" direction="left" ><h6 style="color:white;font-family: Arial;"><i class=" fa fa-shopping-cart"></i> We keep you updated with best deals from the best online retailers in Kenya !</h6></marquee>
+</div>
   </header>
   <div class="card-header" id="smallnavbar">
         <ul class="list-inline align-right">

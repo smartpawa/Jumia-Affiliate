@@ -20,19 +20,7 @@
 
 
         <div class="col-xl-3 col-lg-4 col-md-5">
-                <div class="sidebar-categories" >
-                        <div class="head" id="sub">Sub Categories   <i class=" fa fa-plus"></i></div>
-                        <ul class="list-group" id="subcategories" >
 
-                                @foreach ($subcategories as $subcategory )
-
-                            <a   href="/subcategories/{{ $subcategory->subcategory_slug }}"><li class="category-link list-group-item">{{ $subcategory->subcategory_name }}</li></a>
-                               @endforeach
-
-
-
-                            </ul>
-                      </div>
 
                       <style>
                             .category-link:hover {
@@ -45,7 +33,7 @@
 
 
                         <div class="sidebar-categories" >
-                          <div class="head" id="main">Other Categories <i class=" fa fa-plus"></i></div>
+                          <div class="head" id="main">Categories <i class=" fa fa-plus"></i></div>
                           <ul class="list-group" id="maincategories">
 
                                 @foreach ($categories as $category )
@@ -69,11 +57,11 @@ var w = screen.width;
 
 if(w < 726){
 $("#maincategories").hide();
-    $("#subcategories").hide();
+
 
     //TOGGLE SUB CATEGORIES
     $("#sub").click(function(){
-  $("#subcategories").toggle(500);
+
 });
 
 //TOGGLE MAIN CATEGORIES
@@ -94,8 +82,8 @@ $("#maincategories").hide();
             <div class="card">
             <div class="card-header text-center alert alert-info">
 
-                    All Products
-                  </div>
+            Products branded    '{{ $name }}'
+               </div>
         <div class="card-body">
 
           <!-- Start Best Seller -->

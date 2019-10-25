@@ -17,6 +17,7 @@ class CreateBrandsTable extends Migration
             $table->increments('id');
             $table->string('brand_name');
             $table->string('brand_slug');
+            $table->integer('subcategory_id');
 
             $table->timestamps();
         });

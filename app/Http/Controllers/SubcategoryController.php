@@ -20,12 +20,12 @@ class SubcategoryController extends Controller
     $categories = DB::table('maincategories')->get();
     $products = DB::table('products')->where('subcategory_id', $category)->paginate(20);
 
+    $brands=DB::table('brands')->where('subcategory_id',$category)->get();
 
-
-    $categoryCount = categoryCount();;
+    $categoryCount = categoryCount();
 
     //dd($subcategories);
-    return view('affiliate.subcategory', compact('subcats','categoryCount','products', 'categories',  'index', 'name', 'items'));
+    return view('affiliate.subcategory', compact('brands','subcats','categoryCount','products', 'categories',  'index', 'name', 'items'));
 
 
    }
