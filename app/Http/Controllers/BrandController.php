@@ -22,12 +22,12 @@ class BrandController extends Controller
 
         $categories = DB::table('maincategories')->get();
         $products = DB::table('products')->where('category_id', $category)->paginate(20);
-
+        $brands=DB::table('brands')->inRandomOrder()->paginate(20);
         //COUNT ITEMS IN CATEGORIES
 $categoryCount=categoryCount();
         $cat_id = $category;
 
         //dd($subcategories);
-        return view('affiliate.brand', compact('subcats', 'cat_id', 'categoryCount', 'products', 'categories', 'index', 'name', 'items'));
+        return view('affiliate.brand', compact('brands','subcats', 'cat_id', 'categoryCount', 'products', 'categories', 'index', 'name', 'items'));
     }
 }

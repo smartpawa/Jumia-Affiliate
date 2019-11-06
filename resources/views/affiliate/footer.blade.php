@@ -1,5 +1,11 @@
 
   <!--================ Start footer Area  =================-->
+
+  <style>
+        .col-md-6{
+            margin-bottom:5px;
+        }
+  </style>
   <footer>
 
 
@@ -19,7 +25,7 @@ Copyright Deals Moto &copy;<script>document.write(new Date().getFullYear());
 
 
 
-<script src="{{ asset ('vendors/jquery/jquery-3.2.1.min.js') }}"></script>
+
 <script src="{{ asset ('vendors/bootstrap/bootstrap.bundle.min.js') }}"></script>
 
 <script src="{{ asset ('vendors/owl-carousel/owl.carousel.min.js') }}"></script>

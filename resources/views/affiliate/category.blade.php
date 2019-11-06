@@ -21,12 +21,12 @@
 
         <div class="col-xl-3 col-lg-4 col-md-5">
                 <div class="sidebar-categories" >
-                        <div class="head" id="sub">Sub Categories   <i class=" fa fa-plus"></i></div>
+                        <div class="head" id="sub">Sub Categories   <i class=" fa fa-angle-double-down"></i></div>
                         <ul class="list-group" id="subcategories" >
 
                                 @foreach ($subcategories as $subcategory )
 
-                            <a   href="/subcategories/{{ $subcategory->subcategory_slug }}"><li class="category-link list-group-item">{{ $subcategory->subcategory_name }}</li></a>
+                            <a   href="/subcategories/{{ $subcategory->subcategory_slug }}"><li class="category-link list-group-item">{{ ucwords($subcategory->subcategory_name) }}</li></a>
                                @endforeach
 
 
@@ -45,12 +45,12 @@
 
 
                         <div class="sidebar-categories" >
-                          <div class="head" id="main">Other Categories <i class=" fa fa-plus"></i></div>
+                          <div class="head" id="main">Other Categories <i class=" fa fa-angle-double-down"></i></div>
                           <ul class="list-group" id="maincategories">
 
                                 @foreach ($categories as $category )
 
-                              <a style="color:black"   href="/products/{{ $category->category_slug }}"><li class="category-link list-group-item">{{ $category->category_name }} ({{  $categoryCount[$index] }})</li></a>
+                              <a style="color:black"   href="/products/{{ $category->category_slug }}"><li class="category-link list-group-item">{{ ucwords($category->category_name) }} ({{  $categoryCount[$index] }})</li></a>
                               @php
                                   $index=$index+1;
                               @endphp
@@ -96,12 +96,15 @@ $("#maincategories").hide();
 
                     All Products
                   </div>
+                  <div class="card-body">
+                    
+                  </div>
         <div class="card-body">
 
           <!-- Start Best Seller -->
           <section class="lattest-product-area pb-40 category-list">
               <div> <label>Sort by: </label>
-                <form method="POST">
+                <form method="POST" style="margin-bottom:20px">
                       <label class="radio-inline"><input checked  class="filter" type="radio" value="0" name="optradio">Default </label>
 
                 <label class="radio-inline"><input class="filter" type="radio" value="1" name="optradio">Most Popular</label>
@@ -112,6 +115,7 @@ $("#maincategories").hide();
 </form>
 
               </div>
+
 
 
 

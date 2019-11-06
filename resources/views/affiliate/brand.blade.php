@@ -33,7 +33,7 @@
 
 
                         <div class="sidebar-categories" >
-                          <div class="head" id="main">Categories <i class=" fa fa-plus"></i></div>
+                          <div class="head" id="main">Categories <i class=" fa fa-angle-double-down"></i></div>
                           <ul class="list-group" id="maincategories">
 
                                 @foreach ($categories as $category )
@@ -82,7 +82,7 @@ $("#maincategories").hide();
             <div class="card">
             <div class="card-header text-center alert alert-info">
 
-            Products branded    '{{ $name }}'
+            {{ $name }} Products
                </div>
         <div class="card-body">
 

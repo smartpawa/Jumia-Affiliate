@@ -13,7 +13,7 @@
     <div class="card">
     <div class="card-header text-center">
 
-            All Products
+            Most Popular Products
           </div>
 <div class="card-body">
 

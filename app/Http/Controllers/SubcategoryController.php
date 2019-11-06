@@ -13,19 +13,19 @@ class SubcategoryController extends Controller
     $categoryDetails = DB::table('subcategories')->where('subcategory_slug', $slug)->first();
     $category = $categoryDetails->parent_category_id;
 
-
+ $brands=DB::table('brands')->inRandomOrder()->paginate(20);
     $name = $categoryDetails->subcategory_name;
     $items = DB::table('products')->where('subcategory_id', $category)->count();
 
     $categories = DB::table('maincategories')->get();
     $products = DB::table('products')->where('subcategory_id', $category)->paginate(20);
 
-    $brands=DB::table('brands')->where('subcategory_id',$category)->get();
+    $brand=DB::table('brands')->where('subcategory_id',$category)->get();
 
     $categoryCount = categoryCount();
-
+    $brands=DB::table('brands')->inRandomOrder()->paginate(20);
     //dd($subcategories);
-    return view('affiliate.subcategory', compact('brands','subcats','categoryCount','products', 'categories',  'index', 'name', 'items'));
+    return view('affiliate.subcategory', compact('brand','brands','subcats','categoryCount','products', 'categories',  'index', 'name', 'items'));
 
 
    }

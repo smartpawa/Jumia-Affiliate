@@ -4,25 +4,32 @@
   <main class="site-main">
 
     <!--================ Hero banner start =================-->
-    <section class="hero-banner">
-      <div class="container">
-        <div class="row no-gutters align-items-center pt-60px">
-          <div class="col-5 d-none d-sm-block">
-            <div class="hero-banner__img">
-              <img class="img-fluid" src="img/image1.jpg" alt="">
-            </div>
-          </div>
-          <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
-            <div class="hero-banner__content">
-              <h4>Shopping simplified.</h4>
-
-              <p>Latest and popular select products from the best vendors in the country.</p>
-              <a class="button button-hero" href="/all">Browse Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section>
+        <div class="col-md-4">
+            <div class="card">
+                    <div class="card card-header">
+                      What's our site about?
+                    </div>
+                    <div class="card-body">
+                      <blockquote class="blockquote mb-0">
+                        <p>You no longer have to go through the entire internet looking for a smartphone,a laptop,a dress that you really want for your daughter's birthday or even some nice earphones that a colleague at work reccomended.We have it all pooled together for you!</p>
+                        <footer  class="blink_me blockquote-footer" style="color:red">Disclaimer: We are not sales agents or representatives of any of these sellers.We only link you to their products.Enjoy shopping.
+                        </footer>
+                      </blockquote>
+                    </div>
+                  </div></div>
     </section>
+    <style>
+            .blink_me {
+                animation: blinker 6s linear infinite;
+              }
+
+              @keyframes blinker {
+                50% {
+                  opacity: 0;
+                }
+              }
+    </style>
     <!--================ Hero banner start =================-->
 
     <!--================ Hero Carousel start =================-->
@@ -58,7 +65,7 @@
                                     <div class="col-md-6 col-lg-3" id="{{ $product->id }}">
                                       <div class="card text-center card-product">
                                         <div class="card-product__img"><a href="{{ $product->affiliate_url }}">
-                                          <img class="card-img" src="{{ $product->product_image_url }}" alt="">
+                                          <img style="" class="card-img" src="{{ $product->product_image_url }}" alt="">
 
                                         </a>
 
@@ -71,7 +78,7 @@
                                           <p style="color:green;font-size:16px" >Kshs {{ number_format($product->current_price) }}</p>
                                         </div>
                                         <div>
-                                              <a href="{{ $product->affiliate_url }}">   <button type="button" class="btn btn-success">Visit Seller</button></a>
+                                              <a href="{{ $product->affiliate_url }}">   <button style="margin-bottom:15px" type="button" class="btn btn-success">Visit Seller</button></a>
                                         </div>
                                       </div>
                                     </div>

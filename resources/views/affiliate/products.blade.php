@@ -49,7 +49,7 @@ opacity: 1;
         }
 </style>
     @foreach($products as $product)
-              <div class="col-md-6 col-lg-3" id="{{ $product->id }}">
+              <div  class="col-md-6 col-lg-3" id="{{ $product->id }}">
                 <div class="card text-center card-product">
                   <div class="card-product__img"><a href="{{ $product->affiliate_url }}">
                     <img class="card-img" src="{{ $product->product_image_url }}" alt="">

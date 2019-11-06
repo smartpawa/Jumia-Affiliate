@@ -26,12 +26,12 @@ history.back();
           <div class="row">
                 <div class="col-xl-3 col-lg-4 col-md-5">
                         <div class="sidebar-categories" >
-                                <div class="head" id="sub">Brands<i class=" fa fa-plus"></i></div>
+                                <div class="head" id="sub">BRANDS <i class="fa fa-angle-double-down"></i></div>
                                 <ul class="list-group" id="subcategories" >
 
-                                        @foreach ($brands as $brand )
+                                        @foreach ($brand as $brand )
 
-                                    <a   href="/brands/{{ $brand->brand_slug }}"><li class="category-link list-group-item">{{ $brand->brand_name }}</li></a>
+                                    <a   href="/brand/{{ $brand->brand_slug }}"><li class="category-link list-group-item">{{ $brand->brand_name }}</li></a>
                                        @endforeach
 
 
@@ -50,7 +50,7 @@ history.back();
 
 
                                 <div class="sidebar-categories" >
-                                  <div class="head" id="main">Other Categories <i class=" fa fa-plus"></i></div>
+                                  <div class="head" id="main">OTHER CATEGORIES <i class="fa fa-angle-double-down"></i></div>
                                   <ul class="list-group" id="maincategories">
 
                                         @foreach ($categories as $category )
@@ -78,12 +78,12 @@ history.back();
 
             //TOGGLE SUB CATEGORIES
             $("#sub").click(function(){
-          $("#subcategories").toggle(500);
+          $("#subcategories").toggle(10);
         });
 
         //TOGGLE MAIN CATEGORIES
           $("#main").click(function(){
-          $("#maincategories").toggle(500);
+          $("#maincategories").toggle(10);
         });
         }
 
@@ -98,7 +98,7 @@ history.back();
                 <div class="card">
                 <div class="card-header text-center">
 
-                        {{$name}} ({{$items}} Products)
+                        {{ ucwords($name)}} ({{$items}} Products)
                       </div>
             <div class="card-body">
 

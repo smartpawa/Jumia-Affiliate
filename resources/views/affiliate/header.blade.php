@@ -8,19 +8,25 @@
   <title>Best Online Deals</title>
     <link rel="icon" href="/img/logo.png" type="image/png">
 
+
+
   <link rel="stylesheet" href="{{ asset ('vendors/bootstrap/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset ('vendors/fontawesome/css/all.min.css') }}">
 	<link rel="stylesheet" href="{{ asset ('vendors/themify-icons/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset ('vendors/nice-select/nice-select.css') }}">
   <link rel="stylesheet" href="{{ asset ('vendors/owl-carousel/owl.theme.default.min.css') }}">
   <link rel="stylesheet" href="{{ asset ('vendors/owl-carousel/owl.carousel.min.css') }}">
-  <script src="{{ asset ('js/jquery-3.2.1.min.js') }}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 </head>
 <body style=" background-image:url('/img/background.jpg'),url('/img/background1.jpg')">
 
     <style>
+        .col-md-6{
+            margin-bottom:2px;
+        }
         .btn-outline-success {
 
  color: #28a745;
@@ -108,11 +114,10 @@ function search(){
   <div class="card-header" id="smallnavbar">
         <ul class="list-inline align-right">
 
-                <a  style="color:white; margin:1px"  href="/">   <button class="btn btn-primary">Home</button></a>
-                <a style="color:white;margin:1px"  href="/all">   <button class="btn btn-primary">All Products</button></a>
-                <a style="color:white;margin:1px" href="/popular">   <button class="btn btn-primary">Most Popular</button></a>
-                <a style="color:white;margin:1px"   href="/cheapest">   <button class="btn btn-primary">Cheapest Deals</button></a>
-                <a style="color:white;margin:1px"   href="/blog">   <button class="btn btn-primary">Our Blog</button></a>
+                <a  style="color:white; margin:1px;"  href="/">  <span class="badge badge-pill badge-secondary">Home</span></a>
+                <a style="color:white;margin:1px"  href="/all">  <span class="badge badge-pill badge-secondary">View all Products</span></a>
+                <a style="color:white;margin:1px" href="/popular"> <span class="badge badge-pill badge-secondary">Popular Products</span></a>
+                <a style="color:white;margin:1px"   href="/blog"> <spa class="badge badge-pill badge-secondary">Our Blog</spa></a>
               </ul>
 
   </div>
@@ -175,9 +180,16 @@ $("#search2").hide();
 
   <div class=" card-header">
         <ul class="list-inline">
+            <li>   <span class="badge badge-danger">POPULAR CATEGORIES: </span></li>
             @foreach($subcats as $subcat)
-        <a style="margin:1px" href="/subcategories/{{$subcat->subcategory_slug}}">
-            <button style="height:35px;border-radius:50%" class="btn btn-default" style="">{{$subcat->subcategory_name}}</button></a>
+        <a style="margin:1px" href="/subcategories/{{ $subcat->subcategory_slug}}">
+           <span class="badge badge-success">{{  ucwords($subcat->subcategory_name)}}</span></a>
+@endforeach
+
+<li style="margin-top:5px">   <span class="badge badge-danger">POPULAR BRANDS: </span></li>
+@foreach($brands as $brand)
+<a style="margin:1px" href="/brands/{{ $brand->brand_slug}}">
+<span class="badge badge-warning">{{  ucwords($brand->brand_name)}}</span></a>
 @endforeach
   </div>
 	<!--================ End Header Menu Area =================-->
