@@ -141,4 +141,22 @@ class ProductsController extends Controller
        $grocery->save();
        return response()->json(['success'=>'Data is successfully added']);
 }
+
+
+public function advancedSearch(){
+    $categories = DB::table('maincategories')->get();
+    return view('affiliate.advancedsearch',compact('categories'));
+
+}
+public function getSubCats(){
+    $subcategories = DB::table('subcategories')->inRandomOrder()->paginate(20);
+    return view('affiliate.subcats', compact('subcategories'));
+}
+public function getBrands(){
+    $subcategories = DB::table('subcategories')->inRandomOrder()->paginate(20);
+    return view('affiliate.brands', compact('subcategories'));
+}
+
+
+
 }

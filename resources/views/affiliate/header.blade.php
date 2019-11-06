@@ -44,7 +44,7 @@
         .btn:hover{
             background-color:lightseagreen;
         }
-            .nav-link:hover {
+            .nav-link.nav-item a:hover {
 
               background-color:lightseagreen;
 
@@ -70,12 +70,18 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
               <li  class="nav-item "><a  style="color:white" class="nav-link" href="/">Home</a></li>
-              <li class="nav-item "><a style="color:white"  class="nav-link" href="/all">All products</a></li>
+             <li class="nav-item "><a style="color:white"  class="nav-link" href="/all">All products</a></li>
               <li class="nav-item "><a style="color:white" class="nav-link" href="/popular">Popular Products</a></li>
               <li class="nav-item "><a style="color:white"  class="nav-link" href="/cheapest">Cheapest Deals</a></li>
-              <li class="nav-item"><a style="color:white"  class="nav-link" href="/blog">Blog</a></li>
-            </ul>
+              <li class="nav-item "><a style="color:white"  class="nav-link" href="/advancedsearch">Custom Search</a></li>
 
+            </ul>
+<style>
+    .nav-item a:hover{
+color:red;
+
+    }
+</style>
             <ul class="nav-shop">
               <li class="nav-item">
                   <div>
@@ -117,7 +123,7 @@ function search(){
                 <a  style="color:white; margin:1px;"  href="/">  <span class="badge badge-pill badge-secondary">Home</span></a>
                 <a style="color:white;margin:1px"  href="/all">  <span class="badge badge-pill badge-secondary">View all Products</span></a>
                 <a style="color:white;margin:1px" href="/popular"> <span class="badge badge-pill badge-secondary">Popular Products</span></a>
-                <a style="color:white;margin:1px"   href="/blog"> <spa class="badge badge-pill badge-secondary">Our Blog</spa></a>
+                <a style="color:white;margin:1px"   href="/advancedsearch"> <spa class="badge badge-pill badge-secondary">Custom Search</spa></a>
               </ul>
 
   </div>
