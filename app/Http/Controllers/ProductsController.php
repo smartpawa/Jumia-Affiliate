@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\URL;
 class ProductsController extends Controller
 {
     public function filterProducts(Request $request)
@@ -141,4 +143,16 @@ class ProductsController extends Controller
        $grocery->save();
        return response()->json(['success'=>'Data is successfully added']);
 }
+public function addForm(){
+    $subcategories = DB::table('subcategories')->inRandomOrder()->paginate(20);
+        $index = 0;
+        $categories = DB::table('maincategories')->get();
+        $products = DB::table('products')->paginate(20);
+        $brands=DB::table('brands')->inRandomOrder()->paginate(20);
+        $categoryCount = categoryCount();
+
+    return view('affiliate.new', compact('brands','subcategories', 'products', 'categories', 'categoryCount', 'index'));
+}
+
+
 }
