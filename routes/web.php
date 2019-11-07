@@ -21,7 +21,15 @@ Route::get('getbrands', 'ProductsController@getBrands');
 Route::resource('customs', 'SearchController');
 
 Route::resource('brands', 'BrandController');
+<<<<<<< HEAD
+=======
+Route::get('/addform', 'ProductsController@addForm');
+>>>>>>> 755bf4cb98b949284a1c508f738a56fa7eb77fa3
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+<<<<<<< HEAD
+=======
+Route::resource('new','NewProducts');
+>>>>>>> 755bf4cb98b949284a1c508f738a56fa7eb77fa3
