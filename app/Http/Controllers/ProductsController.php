@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -178,8 +179,11 @@ class ProductsController extends Controller
         $products = DB::table('products')->paginate(20);
         $brands = DB::table('brands')->inRandomOrder()->paginate(20);
         $categoryCount = categoryCount();
-
-        return view('affiliate.new', compact('brands', 'subcategories', 'products', 'categories', 'categoryCount', 'index'));
+if(Auth::check()){
+        return view('admin.new', compact('brands', 'subcategories', 'products', 'categories', 'categoryCount', 'index'));
+}else{
+    return view('auth.login');
+}
     }
 
 }

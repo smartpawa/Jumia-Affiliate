@@ -17,7 +17,7 @@
                         </div>
                         <div class="card-body">
                           <blockquote class="blockquote mb-0">
-                            <p class="text-center " style="color: black">You no longer have to trek across the entire internet looking for products from E-Commerce stores.We have it all pooled together for you.We bring you the best offers from the best eccomerce platfroms in Kenya</p>
+                            <p class="text-center " style="color: black">You no longer have to trek across the entire internet looking for products from E-Commerce stores.We have it all pooled together for you.You can compare prices and make informed choices.We bring you the best offers from the best eccomerce platfroms in Kenya</p>
                             <footer  class="blink_me blockquote-footer" style="color:red">Disclaimer: We are not sales agents or representatives of any of these sellers.We only link you to their products.Enjoy shopping.
                             </footer>
                             <br>

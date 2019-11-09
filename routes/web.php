@@ -26,4 +26,4 @@ Route::get('/addform', 'ProductsController@addForm');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('new','NewProducts');
+Route::resource('new','NewController');
