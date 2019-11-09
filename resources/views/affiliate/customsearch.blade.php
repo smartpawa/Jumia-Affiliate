@@ -5,15 +5,23 @@
         }
 
     </style>
+<script>
+    window.location.href='#results';
+</script>
+@if($products->isEmpty())
+    <script>
+    alert("We could not find any items matching your parameters.We are however working on it.Check later or try another search!");
+    history.back();
+    </script>
 
 
-
+    @endif
+    <script>
+        window.location.href='#results';
+    </script>
     @include('affiliate.header')
-        <!--================ End Header Menu Area =================-->
 
 
-
-        <!-- ================ category section start ================= -->
       <section class="section-margin--small mb-5" style=" opacity: 0.9;">
         <div class="container">
           <div class="row">
@@ -22,19 +30,19 @@
     @include('affiliate.sidemenu')
                 </div>
 
-        <div class="col-xl-9 col-lg-8 col-md-7">
+        <div class="col-xl-9 col-lg-8 col-md-7" >
                 <div class="card">
                 <div class="card-header text-center">
-
+<h4>Customized Search Results</h4>
           </div>
 
-      <div class="card-body">
+      <div class="card-body" id="results">
 
         <!-- Start Best Seller -->
         <section class="lattest-product-area pb-40 category-list">
               <div class="input-group">
 
-                   
+
             <div class="card-body">
 
               <!-- Start Best Seller -->
@@ -100,6 +108,18 @@
 
 
 @endforeach
+
+<script>
+  if(screen.width<800){
+
+      $('.card-img').attr('style','height: 80px');
+      $('.card-img').attr('style','width: 80px');
+
+      $('.productname').attr('style','font-size:5px');
+  }
+
+
+  </script>
 
                 </div>
                 <div>

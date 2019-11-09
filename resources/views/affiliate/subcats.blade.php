@@ -1,8 +1,9 @@
-<select type="text" class="form-control" id="subcat">
-<option>Sub 1</option>
-<option>Sub 1</option>
-<option>Sub 1</option>
+<select type="text" class="form-control" id="subcat" name="subcat">
+  <option value="0">Select Sub-Category</option>
+    @foreach($subcategories as $sub)
+<option value="{{$sub->id}}">{{  ucfirst($sub->subcategory_name)}}</option>
 
+@endforeach
 </select>
 
     <script>
@@ -18,7 +19,7 @@
                      url: "/getbrands",
                      method: 'get',
                      data: {
-
+brand: $('#subcat').val()
                      },
                      success: function(result){
 $('#brands').html(result);

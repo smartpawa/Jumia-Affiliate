@@ -53,6 +53,9 @@
             a:active {
                    background-color:lightseagreen;
               }
+              .btn btn-success{
+                height:3px
+              }
 
     </style>
   <!--================ Start Header Menu Area =================-->
@@ -73,7 +76,7 @@
              <li class="nav-item "><a style="color:white"  class="nav-link" href="/all">All products</a></li>
               <li class="nav-item "><a style="color:white" class="nav-link" href="/popular">Popular Products</a></li>
               <li class="nav-item "><a style="color:white"  class="nav-link" href="/cheapest">Cheapest Deals</a></li>
-              <li class="nav-item "><a style="color:white"  class="nav-link" href="/advancedsearch">Custom Search</a></li>
+              <li class="nav-item "><a style="color:white"  class="nav-link" href="/advancedsearch"><i class="fa fa-search"></i> Custom Search</a></li>
 
             </ul>
 <style>
@@ -123,7 +126,7 @@ function search(){
                 <a  style="color:white; margin:1px;"  href="/">  <span class="badge badge-pill badge-secondary">Home</span></a>
                 <a style="color:white;margin:1px"  href="/all">  <span class="badge badge-pill badge-secondary">View all Products</span></a>
                 <a style="color:white;margin:1px" href="/popular"> <span class="badge badge-pill badge-secondary">Popular Products</span></a>
-                <a style="color:white;margin:1px"   href="/advancedsearch"> <spa class="badge badge-pill badge-secondary">Custom Search</spa></a>
+                <a style="color:white;margin:1px"   href="/advancedsearch"> <spa class="badge badge-pill badge-secondary"><i class="fa fa-search"></i> Custom Search</spa></a>
               </ul>
 
   </div>

@@ -1,23 +1,63 @@
 @include('affiliate.header')
 <!--========= End Header Menu Area =================-->
-
+<style>
+    .col-4 .card-body{
+        background-color: wheat
+    }
+</style>
   <main class="site-main">
 
     <!--================ Hero banner start =================-->
     <section>
-        <div class="col-md-4">
-            <div class="card">
-                    <div class="card card-header">
-                      What's our site about?
+        <div class="row" class="text-center">
+                <div class="col-md-4 col-lg-4 col-sm-12 offset-md-2 offset-lg-2" style="height:600px">
+                <div class="card">
+                        <div class="card card-header text-center">
+                          What is our site about?
+                        </div>
+                        <div class="card-body">
+                          <blockquote class="blockquote mb-0">
+                            <p class="text-center " style="color: black">You no longer have to trek across the entire internet looking for products from E-Commerce stores.We have it all pooled together for you.We bring you the best offers from the best eccomerce platfroms in Kenya</p>
+                            <footer  class="blink_me blockquote-footer" style="color:red">Disclaimer: We are not sales agents or representatives of any of these sellers.We only link you to their products.Enjoy shopping.
+                            </footer>
+                            <br>
+                            <footer style="text-align: center">
+                                    <a href="/all" class="btn btn-success sm">Start Shopping!</a>
+                     
+                                </footer>
+                          </blockquote>
+                        </div>
+                      </div>
                     </div>
-                    <div class="card-body">
-                      <blockquote class="blockquote mb-0">
-                        <p>You no longer have to go through the entire internet looking for a smartphone,a laptop,a dress that you really want for your daughter's birthday or even some nice earphones that a colleague at work reccomended.We have it all pooled together for you!</p>
-                        <footer  class="blink_me blockquote-footer" style="color:red">Disclaimer: We are not sales agents or representatives of any of these sellers.We only link you to their products.Enjoy shopping.
-                        </footer>
-                      </blockquote>
-                    </div>
-                  </div></div>
+                   <div class="col-lg-4 col-md-4 col-sm-12" style="height:600px">
+                            <div class="card">
+                                    <div class="card card-header text-center">
+                                      Our best feature;a customized search!
+                                    </div>
+                                    <div class="card-body">
+                                      <blockquote class="blockquote mb-0">
+                                        <p style="color: black" class="text-center">
+We give you the chance to get you products that fit within your budget.Say you want a phone worth Kshs 15,000
+We will give you all the available phones within that price range.You can even customize your search to a specific phone model.This applies for all products.
+                                        </p>
+                                        <br>
+                                        <footer style="text-align: center">
+                                            <a href="/advancedsearch" class="btn btn-success sm">Try it out!</a>
+                             
+                                        </footer>
+                                      
+
+                                      </blockquote>
+                                    </div>
+                                  </div>
+                                </div>
+                            
+        </div>
+      
+            
+
+
+
     </section>
     <style>
             .blink_me {
@@ -106,6 +146,18 @@
 
 
                       @endforeach
+
+  <script>
+    if(screen.width<800){
+
+        $('.card-img').attr('style','height: 80px');
+        $('.card-img').attr('style','width: 80px');
+
+        $('.productname').attr('style','font-size:5px');
+    }
+
+
+    </script>
 
                             </div>
 <div class=" text-center">

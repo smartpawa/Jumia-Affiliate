@@ -6,8 +6,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\URL;
+
 class ProductsController extends Controller
 {
     public function filterProducts(Request $request)
@@ -39,14 +38,15 @@ class ProductsController extends Controller
     {
         $subcats = DB::table('subcategories')->inRandomOrder()->paginate(20);
         $index = 0;
-        $brands=DB::table('brands')->inRandomOrder()->paginate(20);
+        $brands = DB::table('brands')->inRandomOrder()->paginate(20);
         $categories = DB::table('maincategories')->get();
         $categoryCount = categoryCount();
         $trendingProducts = DB::table('products')->orderBy('visits', 'DESC')->paginate(8);
-        return view('affiliate.index', compact('brands','subcats', 'categoryCount', 'trendingProducts', 'categories', 'index'));
+        return view('affiliate.index', compact('brands', 'subcats', 'categoryCount', 'trendingProducts', 'categories', 'index'));
     }
     public function products()
-    { $brands=DB::table('brands')->inRandomOrder()->paginate(20);
+    {
+        $brands = DB::table('brands')->inRandomOrder()->paginate(20);
         $subcats = DB::table('subcategories')->inRandomOrder()->paginate(20);
         $index = 0;
         $categories = DB::table('maincategories')->get();
@@ -54,7 +54,7 @@ class ProductsController extends Controller
 
         $categoryCount = categoryCount();
 
-        return view('affiliate.products', compact('brands','subcats', 'products', 'categories', 'categoryCount', 'index'));
+        return view('affiliate.products', compact('brands', 'subcats', 'products', 'categories', 'categoryCount', 'index'));
     }
 
     public function show($slug)
@@ -72,13 +72,13 @@ class ProductsController extends Controller
 
         $categories = DB::table('maincategories')->get();
         $products = DB::table('products')->where('category_id', $category)->paginate(20);
-        $brands=DB::table('brands')->inRandomOrder()->paginate(20);
+        $brands = DB::table('brands')->inRandomOrder()->paginate(20);
         //COUNT ITEMS IN CATEGORIES
         $categoryCount = categoryCount();
         $cat_id = $category;
 
         //dd($subcategories);
-        return view('affiliate.category', compact('brands','subcats', 'cat_id', 'categoryCount', 'subcategories', 'products', 'categories', 'index', 'name', 'items'));
+        return view('affiliate.category', compact('brands', 'subcats', 'cat_id', 'categoryCount', 'subcategories', 'products', 'categories', 'index', 'name', 'items'));
     }
 
     public function addVisitCount(Request $request)
@@ -94,10 +94,10 @@ class ProductsController extends Controller
         $index = 0;
         $categories = DB::table('maincategories')->get();
         $products = DB::table('products')->orderBy('visits', 'DESC')->paginate(20);
-        $brands=DB::table('brands')->inRandomOrder()->paginate(20);
+        $brands = DB::table('brands')->inRandomOrder()->paginate(20);
         $categoryCount = categoryCount();
 
-        return view('affiliate.popular', compact('brands','subcats', 'products', 'categories', 'categoryCount', 'index'));
+        return view('affiliate.popular', compact('brands', 'subcats', 'products', 'categories', 'categoryCount', 'index'));
     }
 
     public function cheapest()
@@ -106,17 +106,17 @@ class ProductsController extends Controller
         $index = 0;
         $categories = DB::table('maincategories')->get();
         $products = DB::table('products')->orderBy('current_price', 'ASC')->paginate(20);
-        $brands=DB::table('brands')->inRandomOrder()->paginate(20);
+        $brands = DB::table('brands')->inRandomOrder()->paginate(20);
         $categoryCount = categoryCount();
 
-        return view('affiliate.popular', compact('brands','subcats', 'products', 'categories', 'categoryCount', 'index'));
+        return view('affiliate.popular', compact('brands', 'subcats', 'products', 'categories', 'categoryCount', 'index'));
     }
 
     public function search(Request $request)
-
-    {   $subcats = DB::table('subcategories')->inRandomOrder()->paginate(40);
+    {$subcats = DB::table('subcategories')->inRandomOrder()->paginate(40);
         $keyword = $request->input('search');
-        $index = 0; $brands=DB::table('brands')->inRandomOrder()->paginate(20);
+        $index = 0;
+        $brands = DB::table('brands')->inRandomOrder()->paginate(20);
         //return $request->input('search');
         $index = 0;
         $categories = DB::table('maincategories')->get();
@@ -130,45 +130,56 @@ class ProductsController extends Controller
             $categoryID = $category->id;
             $categoryCount[] = DB::table('products')->where('category_id', $categoryID)->count();
         }
-        return view('affiliate.searchproducts', compact('brands','keyword', 'subcats', 'products', 'categories', 'categoryCount', 'index'));
+        return view('affiliate.searchproducts', compact('brands', 'keyword', 'subcats', 'products', 'categories', 'categoryCount', 'index'));
 
     }
     public function addToCart(Request $request)
-{
-    return response()->json(['success'=>'Data is successfully added']);
-       $grocery = new Article();
-       $grocery->id = $request->id ;
-       $grocery->quantity = $request->quantity;
+    {
+        return response()->json(['success' => 'Data is successfully added']);
+        $grocery = new Article();
+        $grocery->id = $request->id;
+        $grocery->quantity = $request->quantity;
 
-       $grocery->save();
-       return response()->json(['success'=>'Data is successfully added']);
-}
+        $grocery->save();
+        return response()->json(['success' => 'Data is successfully added']);
+    }
 
+    public function advancedSearch()
+    {
+        $subcats = DB::table('subcategories')->inRandomOrder()->paginate(14);
+        $index = 0;
+        $categories = DB::table('maincategories')->get();
+        $products = DB::table('products')->orderBy('current_price', 'ASC')->paginate(20);
+        $brands = DB::table('brands')->inRandomOrder()->paginate(20);
+        $categoryCount = categoryCount();
+        return view('affiliate.advancedsearch', compact('brands', 'subcats', 'products', 'categories', 'categoryCount', 'index'));
 
-public function advancedSearch(){
-    $categories = DB::table('maincategories')->get();
-    return view('affiliate.advancedsearch',compact('categories'));
+    }
+    public function getSubCats(Request $request)
+    {
+        $categoryID = $request->category;
 
-}
-public function getSubCats(){
-    $subcategories = DB::table('subcategories')->inRandomOrder()->paginate(20);
-    return view('affiliate.subcats', compact('subcategories'));
-}
-public function getBrands(){
-    $subcategories = DB::table('subcategories')->inRandomOrder()->paginate(20);
-    return view('affiliate.brands', compact('subcategories'));
-}
+        $subcategories = DB::table('subcategories')->where('parent_category_id', $categoryID)->get();
+        return view('affiliate.subcats', compact('subcategories'));
+    }
+    public function getBrands(Request $request)
+    {
+        $brandID=$request->brand;
+       $brands= DB::table('brands')->where('subcategory_id',$brandID)->get();
+        $subcategories = DB::table('subcategories')->inRandomOrder()->paginate(20);
+        return view('affiliate.brands', compact('brands'));
+    }
 
-public function addForm(){
-    $subcategories = DB::table('subcategories')->inRandomOrder()->paginate(20);
+    public function addForm()
+    {
+        $subcategories = DB::table('subcategories')->inRandomOrder()->paginate(20);
         $index = 0;
         $categories = DB::table('maincategories')->get();
         $products = DB::table('products')->paginate(20);
-        $brands=DB::table('brands')->inRandomOrder()->paginate(20);
+        $brands = DB::table('brands')->inRandomOrder()->paginate(20);
         $categoryCount = categoryCount();
 
-    return view('affiliate.new', compact('brands','subcategories', 'products', 'categories', 'categoryCount', 'index'));
-}
-
+        return view('affiliate.new', compact('brands', 'subcategories', 'products', 'categories', 'categoryCount', 'index'));
+    }
 
 }

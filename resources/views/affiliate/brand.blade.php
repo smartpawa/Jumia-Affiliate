@@ -10,7 +10,9 @@
 
 
     @endif
-
+    <script>
+        window.location.href='#productsstart';
+    </script>
 	<!-- ================ category section start ================= -->
   <section class="section-margin--small mb-5" style=" opacity: 0.9;">
     <div class="container">
@@ -78,7 +80,7 @@ $("#maincategories").hide();
 
 
 
-          <div class="col-xl-9 col-lg-8 col-md-7">
+          <div class="col-xl-9 col-lg-8 col-md-7" id="productsstart">
             <div class="card">
             <div class="card-header text-center alert alert-info">
 
@@ -181,6 +183,17 @@ $("#maincategories").hide();
 
 @endforeach
 
+<script>
+  if(screen.width<800){
+
+      $('.card-img').attr('style','height: 80px');
+      $('.card-img').attr('style','width: 80px');
+
+      $('.productname').attr('style','font-size:5px');
+  }
+
+
+  </script>
             </div>
             <div>
                     <ul class="pagination justify-content-center" style="margin:20px 0">

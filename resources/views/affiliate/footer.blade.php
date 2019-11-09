@@ -25,7 +25,6 @@ Copyright Deals Moto &copy;<script>document.write(new Date().getFullYear());
 
 
 
-
 <script src="{{ asset ('vendors/bootstrap/bootstrap.bundle.min.js') }}"></script>
 
 <script src="{{ asset ('vendors/owl-carousel/owl.carousel.min.js') }}"></script>

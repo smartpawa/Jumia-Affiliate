@@ -87,12 +87,14 @@ $("#maincategories").hide();
 
 
 </script>
-
+<script>
+        window.location.href='#productsstart';
+    </script>
 
 
           <div class="col-xl-9 col-lg-8 col-md-7">
             <div class="card">
-            <div class="card-header text-center alert alert-info">
+            <div class="card-header text-center alert alert-info" id="productsstart">
 
                     All Products
                   </div>
@@ -196,6 +198,18 @@ $("#maincategories").hide();
 
 
 @endforeach
+
+<script>
+  if(screen.width<800){
+      
+      $('.card-img').attr('style','height: 80px');
+      $('.card-img').attr('style','width: 80px');
+   
+      $('.productname').attr('style','font-size:5px');
+  }
+  
+  
+  </script>
 
             </div>
             <div>

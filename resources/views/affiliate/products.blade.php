@@ -6,7 +6,9 @@ opacity: 1;
 
 </style>
 
-
+<script>
+    window.location.href='#productsstart';
+</script>
 
 @include('affiliate.header')
 	<!--================ End Header Menu Area =================-->
@@ -22,7 +24,7 @@ opacity: 1;
 @include('affiliate.sidemenu')
             </div>
 
-    <div class="col-xl-9 col-lg-8 col-md-7">
+    <div class="col-xl-9 col-lg-8 col-md-7" id="productsstart">
             <div class="card">
             <div class="card-header text-center">
 
@@ -49,7 +51,7 @@ opacity: 1;
         }
 </style>
     @foreach($products as $product)
-              <div  class="col-md-6 col-lg-3" id="{{ $product->id }}">
+              <div  class="col-md-3 col-lg-3 col-sm-2" id="{{ $product->id }}">
                 <div class="card text-center card-product">
                   <div class="card-product__img"><a href="{{ $product->affiliate_url }}">
                     <img class="card-img" src="{{ $product->product_image_url }}" alt="">
@@ -60,12 +62,12 @@ opacity: 1;
                   </div>
                   <div class="card-body" style=" font-size: 13px">
                         <p>Seller: {{ $product->seller }}</p>
-                    <p  class=""><a  style="color:black;font-size: 15px" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
+                    <p  class="productname"><a  style="color:black;font-size: 15px" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
                     <p style="color:red" ><strike>Kshs {{ number_format($product->former_price) }}</strike> (-{{ ceil(((($product->former_price)-($product->current_price))/($product->former_price))*100)}}%) </p>
-                    <p style="color:green;font-size:16px" >Kshs {{ number_format($product->current_price) }}</p>
+                    <p c style="color:green;font-size:16px" >Kshs {{ number_format($product->current_price) }}</p>
                   </div>
                   <div>
-                        <a href="{{ $product->affiliate_url }}">   <button type="button" class="btn btn-success">Visit Seller</button></a>
+                        <a href="{{ $product->affiliate_url }}">   <button type="button" class="btn btn-success btn-sm">Visit Seller</button></a>
                   </div>
                 </div>
               </div>
@@ -93,6 +95,18 @@ opacity: 1;
 
 
 @endforeach
+
+<script>
+    if(screen.width<800){
+
+        $('.card-img').attr('style','height: 80px');
+        $('.card-img').attr('style','width: 80px');
+
+        $('.productname').attr('style','font-size:5px');
+    }
+
+
+    </script>
 
             </div>
             <div>

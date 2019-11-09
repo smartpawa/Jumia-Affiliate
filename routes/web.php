@@ -17,8 +17,8 @@ Route::get('/search', 'ProductsController@search');
 Route::get('/advancedsearch', 'ProductsController@advancedsearch');
 Route::get('/getsubcats', 'ProductsController@getSubCats');
 Route::get('/getbrands', 'ProductsController@getBrands');
-Route::get('getbrands', 'ProductsController@getBrands');
-Route::resource('customs', 'SearchController');
+//Route::get('getbrands', 'ProductsController@getBrands');
+Route::resource('customsearch', 'SearchController');
 
 Route::resource('brands', 'BrandController');
 Route::get('/addform', 'ProductsController@addForm');
