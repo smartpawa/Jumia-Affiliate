@@ -30,7 +30,7 @@
 
                             <div class="col-md-6">
                                 <input id="product_image_url" rows="4"  class="form-control{{ $errors->has('product_image_url') ? ' is-invalid' : '' }}" name="product_image_url" value="{{ old('product_image_url') }}" required>
-                          
+
 
                                 @if ($errors->has('product_image_url'))
                                     <span class="invalid-feedback" role="alert">
@@ -83,22 +83,20 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="form-group row">
                             <label for="category_id" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
 
                             <div class="col-md-6">
                                 <select id="category_id" type="category_id" class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" required>
                                     <option value="">Select</option>
-                                    @if(count($categories) > 0))
 
-                                    @foreach ($categories->all() as $category)
-                                        <option value="{{$category->id}}">{{$category->category_name}}</option> 
+                                    @foreach ($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->category_name}}</option>
                                     @endforeach
 
-                                    @endif
-                                    
-                                   
+
+
                                 </select>
 
                                 @if ($errors->has('category_id'))
@@ -115,15 +113,15 @@
                             <div class="col-md-6">
                                 <select id="subcategory_id" type="subcategory_id" class="form-control{{ $errors->has('subcategory_id') ? ' is-invalid' : '' }}" name="subcategory_id" required>
                                     <option value="">Select</option>
-                                    @if(count($subcategories) > 0))
 
-                                    @foreach ($subcategories->all() as $subcategory)
-                                        <option value="{{$subcategory->id}}">{{$subcategory->subcategory_name}}</option> 
+
+                                    @foreach ($subcategories as $subcategory)
+                                        <option value="{{$subcategory->id}}">{{$subcategory->subcategory_name}}</option>
                                     @endforeach
 
-                                    @endif
-                                    
-                                   
+
+
+
                                 </select>
 
                                 @if ($errors->has('category_id'))
@@ -133,8 +131,8 @@
                                 @endif
                             </div>
                         </div>
-                       
-                        
+
+
                         <div class="form-group row">
                             <label for="seller" class="col-md-4 col-form-label text-md-right">{{ __('Seller') }}</label>
 
@@ -166,15 +164,22 @@
                         <div class="form-group row">
                             <label for="brand_id" class="col-md-4 col-form-label text-md-right">{{ __('Brand Id') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="brand_id" type="text" class="form-control{{ $errors->has('brand_id') ? ' is-invalid' : '' }}" name="brand_id" value="{{ old('brand_id') }}" required autofocus>
+<div class="col-md-6">
+                            <select name="brand_id" id="brand_id" type="category_id" class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" required>
+                                <option value="">Select</option>
 
-                                @if ($errors->has('brand_id'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('brand_id') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                                @foreach ($brands as $brand)
+                                    <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
+                                @endforeach
+
+
+
+                            </select>
+
+                        </div>
+
+
+
                         </div>
 
 

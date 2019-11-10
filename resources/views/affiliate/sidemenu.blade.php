@@ -37,7 +37,7 @@
 
             //TOGGLE MAIN CATEGORIES
               $("#browsecategories").click(function(){
-              $("#categorylist").toggle(500);
+              $("#categorylist").toggle();
             });
             }
 

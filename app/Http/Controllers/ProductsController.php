@@ -173,14 +173,14 @@ class ProductsController extends Controller
 
     public function addForm()
     {
-        $subcategories = DB::table('subcategories')->inRandomOrder()->paginate(20);
+        $subcategories = DB::table('subcategories')->orderBy('subcategory_name','ASC')->get();
         $index = 0;
-        $categories = DB::table('maincategories')->get();
-        $products = DB::table('products')->paginate(20);
-        $brands = DB::table('brands')->inRandomOrder()->paginate(20);
+        $categories = DB::table('maincategories')->orderBy('category_name','ASC')->get();
+
+        $brands = DB::table('brands')->orderBy('brand_name','ASC')->get();
         $categoryCount = categoryCount();
 if(Auth::check()){
-        return view('admin.new', compact('brands', 'subcategories', 'products', 'categories', 'categoryCount', 'index'));
+        return view('admin.new', compact('brands', 'subcategories', 'categories', 'categoryCount', 'index'));
 }else{
     return view('auth.login');
 }

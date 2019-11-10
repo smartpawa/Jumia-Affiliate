@@ -27,21 +27,21 @@
                                     <th scope="row">{{ $index++ }}</th>
                                     <td>{{ $product->product_name }}</td>
                                     <td>{{ $product->id }}</td>
-                                    <td>{{ $product->affiliate_url }}</td>
                                     <td>{{ $product->seller }}</td>
+                               
                                     <td>{{ number_format($product->current_price) }}</td>
                                     <td><a href="/new/{{ $product->id }}/edit">Edit</a></td>
                                     <td>
                                             <form action="/new/{{ $product->id }}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
-                                    
+
                                                 <button>Delete </button>
                                             </form>
                                         </td>
                                   </tr>
                                   @endforeach
-                                  
+
                                 </tbody>
                               </table>
                 </div>
