@@ -9,11 +9,7 @@ opacity: 1;
 
 
 @include('affiliate.header')
-	<!--================ End Header Menu Area =================-->
-
-
-
-	<!-- ================ category section start ================= -->
+	
   <section class="section-margin--small mb-5" style=" opacity: 0.9;">
     <div class="container">
 
