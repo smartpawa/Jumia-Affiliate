@@ -138,7 +138,7 @@
      
     </form>
 <div>
-    <button class="btn btn-primary" onclick="reset()">Reset Values</button>
+    <button class="btn btn-primary" onclick="reset()">Refresh</button>
     <script>
         function reset(){
             location.reload();

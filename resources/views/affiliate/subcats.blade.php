@@ -1,5 +1,5 @@
 <select type="text" class="form-control" id="subcat" name="subcat">
-  <option value="0">Select Sub-Category</option>
+  <option value="0">All Subcategories</option>
     @foreach($subcategories as $sub)
 <option value="{{$sub->id}}">{{  ucfirst($sub->subcategory_name)}}</option>
 

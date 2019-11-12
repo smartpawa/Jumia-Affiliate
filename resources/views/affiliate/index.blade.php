@@ -76,12 +76,12 @@
             </style>
             <div class="stickers offset-lg-4 offset-sm-1">
                    
-                  <aside class="sticker green">Try this out!</br>Our amazing</br>Customized search </br></br>
+                  <aside style="margin:50px" class="sticker green">Try this out!</br>Our amazing</br>Customized search </br></br>
                         <a href="/advancedsearch"> <button style="border-radius:50px" class=" btn btn-default small blink-bg"> Try it out! </button></a>
                   
                     </aside>
-                    <aside  class="sticker yellow">Disclaimer:</br>We are not</br> representatives </br>
-                        of any of these</br>stores
+                    <aside style="margin:50px"   class="sticker yellow">Disclaimer:</br>We are not</br>agents</br>
+                        of any of these</br>stores;</br>We only market.
                         </aside>
                 </div>
                 
