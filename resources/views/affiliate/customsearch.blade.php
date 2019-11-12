@@ -30,7 +30,7 @@
     @include('affiliate.sidemenu')
                 </div>
 
-        <div class="col-xl-9 col-lg-8 col-md-7" >
+        <div class=" col-xl-9 col-lg-9 col-md-7" id="productsstart">
                 <div class="card">
                 <div class="card-header text-center">
 <h4>Customized Search Results</h4>

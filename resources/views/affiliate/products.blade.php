@@ -6,9 +6,7 @@ opacity: 1;
 
 </style>
 
-<script>
-    window.location.href='#productsstart';
-</script>
+
 
 @include('affiliate.header')
 	<!--================ End Header Menu Area =================-->
@@ -18,12 +16,12 @@ opacity: 1;
 	<!-- ================ category section start ================= -->
   <section class="section-margin--small mb-5" style=" opacity: 0.9;">
     <div class="container">
-        
+
       <div class="row" >
-            
+
 
 @include('affiliate.sidemenu')
-            
+
 
     <div class=" col-xl-9 col-lg-9 col-md-7" id="productsstart">
             <div class="card">

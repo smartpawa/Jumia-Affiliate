@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
+
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -165,25 +165,25 @@ class ProductsController extends Controller
     }
     public function getBrands(Request $request)
     {
-        $brandID=$request->brand;
-       $brands= DB::table('brands')->where('subcategory_id',$brandID)->get();
+        $brandID = $request->brand;
+        $brands = DB::table('brands')->where('subcategory_id', $brandID)->get();
         $subcategories = DB::table('subcategories')->inRandomOrder()->paginate(20);
         return view('affiliate.brands', compact('brands'));
     }
 
     public function addForm()
     {
-        $subcategories = DB::table('subcategories')->orderBy('subcategory_name','ASC')->get();
+        $subcategories = DB::table('subcategories')->orderBy('subcategory_name', 'ASC')->get();
         $index = 0;
-        $categories = DB::table('maincategories')->orderBy('category_name','ASC')->get();
+        $categories = DB::table('maincategories')->orderBy('category_name', 'ASC')->get();
 
-        $brands = DB::table('brands')->orderBy('brand_name','ASC')->get();
+        $brands = DB::table('brands')->orderBy('brand_name', 'ASC')->get();
         $categoryCount = categoryCount();
-if(Auth::check()){
-        return view('admin.new', compact('brands', 'subcategories', 'categories', 'categoryCount', 'index'));
-}else{
-    return view('auth.login');
-}
+        if (Auth::check()) {
+            return view('admin.new', compact('brands', 'subcategories', 'categories', 'categoryCount', 'index'));
+        } else {
+            return view('auth.login');
+        }
     }
 
 }

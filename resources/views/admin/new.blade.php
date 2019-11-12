@@ -166,12 +166,10 @@
 
 <div class="col-md-6">
                             <select name="brand_id" id="brand_id" type="category_id" class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" required>
-                                <option value="">Select</option>
-
+                                <option value="100">Others</option>
                                 @foreach ($brands as $brand)
-                                    <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
+                                    <option value="{{$brand->id}}">{{ $brand->brand_name}}</option>
                                 @endforeach
-
 
 
                             </select>
@@ -187,7 +185,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Publish Post') }}
+                                    {{ __('Save Post') }}
                                 </button>
                             </div>
                         </div>

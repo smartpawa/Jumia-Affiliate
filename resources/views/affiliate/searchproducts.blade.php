@@ -22,7 +22,7 @@
     @include('affiliate.sidemenu')
                 </div>
 
-        <div class="col-xl-9 col-lg-8 col-md-7">
+        <div class=" col-xl-9 col-lg-9 col-md-7" id="productsstart">
                 <div class="card">
                 <div class="card-header text-center">
 
@@ -114,14 +114,14 @@
 
 <script>
   if(screen.width<800){
-      
+
       $('.card-img').attr('style','height: 80px');
       $('.card-img').attr('style','width: 80px');
-   
+
       $('.productname').attr('style','font-size:5px');
   }
-  
-  
+
+
   </script>
 
                 </div>

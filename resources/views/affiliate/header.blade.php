@@ -203,3 +203,6 @@ $("#search2").hide();
   </div>
 	<!--================ End Header Menu Area =================-->
 
+    <script>
+        window.location.href='#productsstart';
+    </script>

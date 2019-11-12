@@ -17,15 +17,15 @@
       <section class="section-margin--small mb-5" style=" opacity: 0.9;">
         <div class="container">
           <div class="row" >
-   
-    @include('affiliate.sidemenu')
-               
 
-        <div class="col-xl-9 col-lg-8 col-md-7">
+    @include('affiliate.sidemenu')
+
+
+        <div class=" col-xl-9 col-lg-9 col-md-7" id="productsstart">
                 <div class="card">
                 <div class="card-header text-center">
 
-                        All Products
+                        Popular Products
                       </div>
             <div class="card-body">
 
@@ -92,17 +92,17 @@
 
 
     @endforeach
-    
+
   <script>
     if(screen.width<800){
-        
+
         $('.card-img').attr('style','height: 80px');
         $('.card-img').attr('style','width: 80px');
-     
+
         $('.productname').attr('style','font-size:5px');
     }
-    
-    
+
+
     </script>
 
                 </div>

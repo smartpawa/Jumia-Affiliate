@@ -80,7 +80,7 @@ $("#maincategories").hide();
 
 
 
-          <div class="col-xl-9 col-lg-8 col-md-7" id="productsstart">
+          <div class=" col-xl-9 col-lg-9 col-md-7" id="productsstart">
             <div class="card">
             <div class="card-header text-center alert alert-info">
 

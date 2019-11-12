@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class BrandController extends Controller
@@ -16,18 +15,17 @@ class BrandController extends Controller
         $categoryDetails = DB::table('brands')->where('brand_slug', $slug)->first();
         $category = $categoryDetails->id;
 
-
         $name = $categoryDetails->brand_name;
         $items = DB::table('products')->where('brand_id', $category)->count();
 
         $categories = DB::table('maincategories')->get();
         $products = DB::table('products')->where('category_id', $category)->paginate(20);
-        $brands=DB::table('brands')->inRandomOrder()->paginate(20);
+        $brands = DB::table('brands')->inRandomOrder()->paginate(20);
         //COUNT ITEMS IN CATEGORIES
-$categoryCount=categoryCount();
+        $categoryCount = categoryCount();
         $cat_id = $category;
 
         //dd($subcategories);
-        return view('affiliate.brand', compact('brands','subcats', 'cat_id', 'categoryCount', 'products', 'categories', 'index', 'name', 'items'));
+        return view('affiliate.brand', compact('brands', 'subcats', 'cat_id', 'categoryCount', 'products', 'categories', 'index', 'name', 'items'));
     }
 }
