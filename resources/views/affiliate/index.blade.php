@@ -9,51 +9,88 @@
 
     <!--================ Hero banner start =================-->
     <section>
-        <div class="row" class="text-center">
-                <div class="col-md-4 col-lg-4 col-sm-12 offset-md-2 offset-lg-2" style="height:600px">
-                <div class="card">
-                        <div class="card card-header text-center">
-                          What is our site about?
-                        </div>
-                        <div class="card-body">
-                          <blockquote class="blockquote mb-0">
-                            <p class="text-center " style="color: black">You no longer have to trek across the entire internet looking for products from E-Commerce stores.We have it all pooled together for you.You can compare prices and make informed choices.We bring you the best offers from the best eccomerce platfroms in Kenya</p>
-                            <footer  class="blink_me blockquote-footer" style="color:red">Disclaimer: We are not sales agents or representatives of any of these sellers.We only link you to their products.Enjoy shopping.
-                            </footer>
-                            <br>
-                            <footer style="text-align: center">
-                                    <a href="/all" class="btn btn-success sm">Start Shopping!</a>
-                     
-                                </footer>
-                          </blockquote>
-                        </div>
-                      </div>
-                    </div>
-                   <div class="col-lg-4 col-md-4 col-sm-12" style="height:600px">
-                            <div class="card">
-                                    <div class="card card-header text-center">
-                                      Our best feature;a customized search!
-                                    </div>
-                                    <div class="card-body">
-                                      <blockquote class="blockquote mb-0">
-                                        <p style="color: black" class="text-center">
-We give you the chance to get you products that fit within your budget.Say you want a phone worth Kshs 15,000
-We will give you all the available phones within that price range.You can even customize your search to a specific phone model.This applies for all products.
-                                        </p>
-                                        <br>
-                                        <footer style="text-align: center">
-                                            <a href="/advancedsearch" class="btn btn-success sm">Try it out!</a>
-                             
-                                        </footer>
-                                      
+         <style>
+                .sticker body {
+                    font-family: "Fjalla One", sans-serif;
+                    color: white;
+                    background: url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/blackorchid.png");
+                  }
+                  .sticker {
+                    margin: 70px auto;
+                    width: 580px;
+                  }
+                  .sticker h1 {
+                    text-align: center;
+                    font-size: 2em;
+                    margin-bottom: 1em;
+                  }
+                  aside.sticker {
+                    margin: 20px;
+                    font-size: 20px;
+                    text-shadow: 0px 0px 3px rgba(0,0,0,0.4);
+                    color: black;
+                    width: 250px;
+                    height: 250px;
+                    display: inline-block;
+                    border-radius: 100%;
+                    background: -webkit-linear-gradient(135deg, transparent 32px, #aaa 20px, #eee);
+                    text-align: center;
+                    padding-top: 40px;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                  }
+               
+                  
+                  aside.sticker.green {
+                    color: white;
+                    background: -webkit-linear-gradient(135deg, transparent 32px, #46a82d 20px, #70c757);
+                  }
+                  aside.sticker.cyan {
+                    color: white;
+                    background: -webkit-linear-gradient(135deg, transparent 32px, #2d8aa6 20px, #57b1c7);
+                  }
+                  aside.sticker.yellow {
+                    color: white;
+                    background: -webkit-linear-gradient(135deg, transparent 32px, #a69c2e 20px, #c7b857);
+                  }
+                  aside.sticker.pink {
+                    color: white;
+                    background: -webkit-linear-gradient(135deg, transparent 32px, #8e2ea6 20px, #b457c7);
+                  }
+         </style>
+         <style>
+                .blink-bg{
+                    color: #fff;
+                    padding: 10px;
+                    display: inline-block;
+                    border-radius: 5px;
+                    animation: blinkingBackground 2s infinite;
+                }
+                @keyframes blinkingBackground{
+                    0%		{ background-color: #10c018;}
+                    25%		{ background-color: #1056c0;}
+                    50%		{ background-color: #ef0a1a;}
+                    75%		{ background-color: #254878;}
+                    100%	        { background-color: #04a1d5;}
+                }
+            </style>
+            <div class="stickers offset-lg-4 offset-sm-1">
+                   
+                  <aside class="sticker green">Try this out!</br>Our amazing</br>Customized search </br></br>
+                        <a href="/advancedsearch"> <button style="border-radius:50px" class=" btn btn-default small blink-bg"> Try it out! </button></a>
+                  
+                    </aside>
+                    <aside  class="sticker yellow">Disclaimer:</br>We are not</br> representatives </br>
+                        of any of these</br>stores
+                        </aside>
+                </div>
+                
 
-                                      </blockquote>
-                                    </div>
-                                  </div>
-                                </div>
-                            
-        </div>
-      
+
+
+
+
+        
             
 
 
