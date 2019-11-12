@@ -178,9 +178,10 @@ class ProductsController extends Controller
         $categories = DB::table('maincategories')->orderBy('category_name', 'ASC')->get();
 
         $brands = DB::table('brands')->orderBy('brand_name', 'ASC')->get();
+        $sellers =DB::table('sellers')->get();
         $categoryCount = categoryCount();
         if (Auth::check()) {
-            return view('admin.new', compact('brands', 'subcategories', 'categories', 'categoryCount', 'index'));
+            return view('admin.new', compact('sellers','brands', 'subcategories', 'categories', 'categoryCount', 'index'));
         } else {
             return view('auth.login');
         }

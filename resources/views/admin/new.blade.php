@@ -132,20 +132,21 @@
                             </div>
                         </div>
 
-
                         <div class="form-group row">
-                            <label for="seller" class="col-md-4 col-form-label text-md-right">{{ __('Seller') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="seller" type="text" class="form-control{{ $errors->has('seller') ? ' is-invalid' : '' }}" name="seller" value="{{ old('seller') }}" required autofocus>
-
-                                @if ($errors->has('seller'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('seller') }}</strong>
-                                    </span>
-                                @endif
+                                <label for="visits" class="col-md-4 col-form-label text-md-right">{{ __('Seller') }}</label>
+    
+                                <div class="col-md-6">
+                                        <select name="seller" id="seller" type="category_id" class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}"  required>
+    
+                                                @foreach ($sellers as $seller)
+                                                    <option >{{ $seller->name}}</option>
+                                                @endforeach
+    
+    
+                                            </select>
+    
+                                </div>
                             </div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="visits" class="col-md-4 col-form-label text-md-right">{{ __('Visits') }}</label>
