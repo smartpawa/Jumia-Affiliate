@@ -39,8 +39,8 @@
                     box-sizing: border-box;
                     overflow: hidden;
                   }
-               
-                  
+
+
                   aside.sticker.green {
                     color: white;
                     background: -webkit-linear-gradient(135deg, transparent 32px, #46a82d 20px, #70c757);
@@ -75,23 +75,23 @@
                 }
             </style>
             <div class="stickers offset-lg-4 offset-sm-1">
-                   
+
                   <aside style="margin:50px" class="sticker green">Try this out!</br>Our amazing</br>Customized search </br></br>
                         <a href="/advancedsearch"> <button style="border-radius:50px" class=" btn btn-default small blink-bg"> Try it out! </button></a>
-                  
+
                     </aside>
                     <aside style="margin:50px"   class="sticker yellow">Disclaimer:</br>We are not</br>agents</br>
                         of any of these</br>stores;</br>We only market.
                         </aside>
                 </div>
-                
 
 
 
 
 
-        
-            
+
+
+
 
 
 
@@ -150,7 +150,7 @@
                                         </div>
                                         <div class="card-body" style=" font-size: 13px">
                                               <p>Seller: {{ $product->seller }}</p>
-                                          <p  class=""><a  style="color:black;font-size: 15px" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
+                                          <p  class="productname"><a  style="color:black;" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
                                           <p style="color:red" ><strike>Kshs {{ number_format($product->former_price) }}</strike> (-{{ ceil(((($product->former_price)-($product->current_price))/($product->former_price))*100)}}%) </p>
                                           <p style="color:green;font-size:16px" >Kshs {{ number_format($product->current_price) }}</p>
                                         </div>

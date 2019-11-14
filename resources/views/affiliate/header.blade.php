@@ -25,6 +25,10 @@
 <body style=" background-image:url('/img/background.jpg'),url('/img/background1.jpg')">
 
     <style>
+.productname{
+    font-size: 12px;
+}
+
         .col-md-6{
             margin-bottom:2px;
         }
@@ -65,7 +69,7 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container" style=" color">
           <a class="navbar-brand logo_h" href="/"><img height="70px"src="/img/logo.png" alt=""></a>
-        
+
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
               <li  class="nav-item "><a  style="color:white" class="nav-link" href="/">Home</a></li>

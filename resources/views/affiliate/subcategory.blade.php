@@ -18,7 +18,7 @@ history.back();
 
     </style>
     @include('affiliate.header')
-      
+
       <section class="section-margin--small mb-5" style=" opacity: 0.9;">
         <div class="container">
           <div class="row">
@@ -29,7 +29,7 @@ history.back();
 
                                         @foreach ($brand as $brand )
 
-                                    <a   href="/brand/{{ $brand->brand_slug }}"><li class="category-link list-group-item">{{ $brand->brand_name }}</li></a>
+                                    <a   href="/brands/{{ $brand->brand_slug }}"><li class="category-link list-group-item">{{ $brand->brand_name }}</li></a>
                                        @endforeach
 
 

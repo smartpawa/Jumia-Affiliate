@@ -9,7 +9,7 @@ opacity: 1;
 
 
 @include('affiliate.header')
-	
+
   <section class="section-margin--small mb-5" style=" opacity: 0.9;">
     <div class="container">
 
@@ -57,19 +57,19 @@ opacity: 1;
                   </div>
                   <div class="card-body" style=" font-size: 13px">
                         <p>Seller: {{ $product->seller }}</p>
-                    <p  class="productname"><a  style="color:black;font-size: 15px" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
+                    <p  class="productname"><a  style="color:black;" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
                     <p style="color:red" ><strike>Kshs {{ number_format($product->former_price) }}</strike> (-{{ ceil(((($product->former_price)-($product->current_price))/($product->former_price))*100)}}%) </p>
                     <p c style="color:green;font-size:16px" >Kshs {{ number_format($product->current_price) }}</p>
                   </div>
                   <div>
-                        <a href="{{ $product->affiliate_url }}">   <button type="button" class="btn btn-success btn-sm">Visit Seller</button></a>
+                        <a href="{{ $product->affiliate_url }}">   <button type="button" class="btn btn-success btn-sm">View Details</button></a>
                   </div>
                 </div>
               </div>
 
 
               <script>
-                jQuery(document).ready(function(){
+
                    jQuery('#{{ $product->id }}').click(function(e){
 
                       $.ajaxSetup({
@@ -85,19 +85,20 @@ opacity: 1;
 
                          },
                        });
-                   });
+                
              </script>
 
+            </br>
 
 @endforeach
 
 <script>
     if(screen.width<800){
 
-        $('.card-img').attr('style','height: 80px');
-        $('.card-img').attr('style','width: 80px');
+        $('.card-img').attr('style','height: 140px');
+        $('.card-img').attr('style','width: 100px');
 
-        $('.productname').attr('style','font-size:5px');
+
     }
 
 
