@@ -85,24 +85,14 @@ opacity: 1;
 
                          },
                        });
-                
+
              </script>
 
             </br>
 
 @endforeach
 
-<script>
-    if(screen.width<800){
 
-        $('.card-img').attr('style','height: 140px');
-        $('.card-img').attr('style','width: 100px');
-
-
-    }
-
-
-    </script>
 
             </div>
             <div>

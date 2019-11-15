@@ -1,6 +1,16 @@
 
   <!--================ Start footer Area  =================-->
+  <script>
+        if(screen.width<800){
 
+            $('.card-img').attr('style','height: 140px');
+            $('.card-img').attr('style','width: 100px');
+
+
+        }
+
+
+        </script>
   <style>
         .col-md-6{
             margin-bottom:5px;

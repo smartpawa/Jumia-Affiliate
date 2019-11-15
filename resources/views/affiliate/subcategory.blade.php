@@ -164,17 +164,7 @@ history.back();
 
 @endforeach
 
-<script>
-  if(screen.width<800){
 
-      $('.card-img').attr('style','height: 80px');
-      $('.card-img').attr('style','width: 80px');
-
-      $('.productname').attr('style','font-size:5px');
-  }
-
-
-  </script>
 
                 </div>
                 <div>
