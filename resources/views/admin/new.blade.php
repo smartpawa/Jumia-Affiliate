@@ -134,17 +134,17 @@
 
                         <div class="form-group row">
                                 <label for="visits" class="col-md-4 col-form-label text-md-right">{{ __('Seller') }}</label>
-    
+
                                 <div class="col-md-6">
                                         <select name="seller" id="seller" type="category_id" class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}"  required>
-    
+
                                                 @foreach ($sellers as $seller)
                                                     <option >{{ $seller->name}}</option>
                                                 @endforeach
-    
-    
+
+
                                             </select>
-    
+
                                 </div>
                             </div>
 
@@ -163,7 +163,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="brand_id" class="col-md-4 col-form-label text-md-right">{{ __('Brand Id') }}</label>
+                            <label for="brand_id" class="col-md-4 col-form-label text-md-right">{{ __('Brand') }}</label>
 
 <div class="col-md-6">
                             <select name="brand_id" id="brand_id" type="category_id" class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" required>

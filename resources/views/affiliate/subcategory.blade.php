@@ -29,7 +29,7 @@ history.back();
 
                                         @foreach ($brand as $brand )
 
-                                    <a   href="/brands/{{ $brand->brand_slug }}"><li class="category-link list-group-item">{{ $brand->brand_name }}</li></a>
+                                    <a   href="/brands/{{ $brand->brand_slug }}"><li class="category-link list-group-item" style="font-size:12px">{{ $brand->brand_name }}</li></a>
                                        @endforeach
 
 
@@ -53,7 +53,7 @@ history.back();
 
                                         @foreach ($categories as $category )
 
-                                      <a style="color:black"   href="/products/{{ $category->category_slug }}"><li class="category-link list-group-item">{{ $category->category_name }} ({{  $categoryCount[$index] }})</li></a>
+                                      <a style="color:black"   href="/products/{{ $category->category_slug }}"><li class="category-link list-group-item" style="font-size:12px">{{ $category->category_name }} ({{  $categoryCount[$index] }})</li></a>
                                       @php
                                           $index=$index+1;
                                       @endphp
@@ -130,7 +130,7 @@ history.back();
            </div>
            <div class="card-body" style=" font-size: 13px">
                  <p>Seller: {{ $product->seller }}</p>
-             <p  class=""><a  style="color:black;font-size: 15px" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
+             <p  class="productname"><a  style="color:black;" href="{{ $product->affiliate_url }}">{{ $product->product_name }}</a></p>
              <p style="color:red" ><strike>Kshs {{ number_format($product->former_price) }}</strike> (-{{ ceil(((($product->former_price)-($product->current_price))/($product->former_price))*100)}}%) </p>
              <p style="color:green;font-size:16px" >Kshs {{ number_format($product->current_price) }}</p>
            </div>
